@@ -1,0 +1,9 @@
+# macOS 系统文件
+.DS_Store
+
+# WorkBuddy 内部目录（含密钥/记忆，禁止提交）
+.workbuddy/
+
+# 依赖与日志
+node_modules/
+*.log

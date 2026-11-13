@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>如何搭建一套可维护的设计系统 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb-detail">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html"><img src="assets/icons/i-arrow.svg" alt="">返回知识库</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">设计 · DESIGN SYSTEM</span>
+            <h1 class="article-title">如何搭建一套可维护的设计系统</h1>
+            <p class="article-lead">从设计令牌到组件治理，用一套可持续的方法，让设计系统真正服务于团队与产品。</p>
+            <div class="author-row">
+              <span class="author-avatar">LB</span>
+              <div class="author-info"><span class="author-info__name">兰博</span><span class="author-info__meta">2026.11.08 · 8 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>设计系统不是一套静态的组件文件，而是一套关于「共识」的基础设施。它的价值不在于收集了多少组件，而在于让团队在同一套语言下高效协作。这篇文章记录我在落地设计系统过程中的思考与取舍。</p>
+          </blockquote>
+
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 为什么需要设计系统</h2>
+            <p class="chapter__p">当产品从单一页面扩展到多条业务线，设计与研发的协作成本会指数级上升。同一枚按钮在不同页面出现七八种样式，不仅损害体验的一致性，也让每次改动都变成一场巡逻式的排查。</p>
+            <p class="chapter__p">设计系统正是为解决这类熵增而生：它把决策固化下来，让「正确」成为默认选项，从而把精力释放到真正需要创造力的地方。</p>
+          </section>
+
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 设计令牌的分层</h2>
+            <p class="chapter__p">令牌是设计系统的原子。我把它分为三层：基础层（Primitive）定义最原始的颜色与尺寸，语义层（Semantic）赋予其含义，组件层（Component）再绑定到具体用途。分层的意义在于——当品牌色调整时，只需改动基础层一处。</p>
+            <div class="token-demo">
+              <div class="token-demo__cell"><span class="token-demo__k">PRIMITIVE</span><span class="token-demo__v">color-lime-500</span></div>
+              <div class="token-demo__cell"><span class="token-demo__k">SEMANTIC</span><span class="token-demo__v">color-action-primary</span></div>
+            </div>
+          </section>
+
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 组件库的组织方式</h2>
+            <p class="chapter__p">组件的粒度是另一个高频争议点。我的经验是：从「使用场景」而非「视觉相似度」出发划分组件。一个看似普通的按钮，在主流程、危险操作与弱引导场景下，其实是三种不同的组件。</p>
+            <div class="quote-card">
+              <span class="quote-card__t">「 一套好的设计系统，应该让遵守规则比打破规则更轻松。 」</span>
+              <span class="quote-card__by">— 落地备忘</span>
+            </div>
+          </section>
+
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 文档与协作治理</h2>
+            <p class="chapter__p">没有文档的设计系统只是一份素材堆。每个组件都需要说明它的适用场景、状态规范与禁用示例。更重要的是建立「贡献机制」——让业务团队能反向提出组件需求，并参与到评审中，系统才会随产品一起生长。</p>
+            <div class="point-list">
+              <div class="point"><span class="point__dot"></span><span class="point__t">每个组件配齐「用法 / 状态 / 反例」三件套</span></div>
+              <div class="point"><span class="point__dot"></span><span class="point__t">设立固定评审节奏，避免系统与实际脱节</span></div>
+              <div class="point"><span class="point__dot"></span><span class="point__t">用版本号与变更日志管理演进，让升级可追溯</span></div>
+            </div>
+          </section>
+
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 落地经验与反思</h2>
+            <p class="chapter__p">回顾整个过程，最大的教训是：不要试图一次性建好一套完美的系统。从最高频、最通用的组件切入，在真实项目中验证、修正、再扩展——系统的权威来自被使用，而非被设计。</p>
+          </section>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip">设计系统</span>
+            <span class="chip chip--blue">设计令牌</span>
+            <span class="chip chip--orange">团队协作</span>
+          </div>
+
+          <section class="related" aria-label="相关阅读">
+            <h3 class="related__title">相关阅读 / RELATED</h3>
+            <div class="related-row">
+              <a class="related-card" href="kb-detail.html"><span class="related-card__k cat-design">设计 · 09.30</span><span class="related-card__t">深色模式配色的取舍与心得</span></a>
+              <a class="related-card" href="kb-detail.html"><span class="related-card__k cat-front">前端 · 10.27</span><span class="related-card__t">Vue 3 组件设计的 12 个实践要点</span></a>
+            </div>
+          </section>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch1">01&nbsp;&nbsp;为什么需要设计系统</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;设计令牌的分层</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;组件库的组织方式</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;文档与协作治理</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;落地经验与反思</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">发布于 2026.11.08</span>
+          <span class="toc__meta-v">阅读时长 8 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · 设计系统</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

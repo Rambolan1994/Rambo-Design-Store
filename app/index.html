@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首页 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="home" data-page="home">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <!-- Banner 欢迎区 -->
+      <section class="banner" aria-label="自我介绍">
+        <div class="banner__figure">
+          <img src="assets/icons/hero-illustration.svg" alt="戴眼镜、穿荧光绿连帽衫的设计师卡通形象">
+        </div>
+        <div class="banner__intro">
+          <span class="welcome-pill">你好 · WELCOME</span>
+          <h1 class="greeting">你好，我是兰博。</h1>
+          <p class="banner__sub">设计师 × 前端开发者 · 在设计与代码之间，造点有意思的东西。</p>
+          <div class="skill-label">技能栈 / SKILL SET</div>
+          <div class="skill-tags">
+            <span class="chip chip--mono">UI / UX Design</span>
+            <span class="chip chip--blue">Figma</span>
+            <span class="chip chip--green chip--mono">Vue / React</span>
+            <span class="chip chip--mono">TypeScript</span>
+            <span class="chip chip--orange">Design System</span>
+            <span class="chip chip--purple">AI Tools</span>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="works.html">查看我的作品<span class="btn__arrow"><img src="assets/icons/i-arrow.svg" alt=""></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 最新作品 -->
+      <section class="section" aria-labelledby="home-works-title">
+        <div class="section-head">
+          <div class="title-group">
+            <span class="kicker">01 / SELECTED WORKS</span>
+            <h2 class="h-section" id="home-works-title">最新作品</h2>
+          </div>
+          <a class="link-more" href="works.html">查看全部作品<img src="assets/icons/i-arrow.svg" alt=""></a>
+        </div>
+        <div class="grid-3" style="margin-top:20px;">
+          <a class="work-card" href="work-detail.html">
+            <div class="work-card__cover" style="background:linear-gradient(135deg,#171C1A,#293D26);">
+              <img src="assets/covers/cover-zhengkaotong.png" alt="考证通 App 展示图">
+              <span class="corner-badge">移动应用</span><span class="work-card__num">01</span>
+            </div>
+            <div class="work-card__info"><span class="work-card__title">考证通 · 在线备考平台</span><span class="work-card__meta">UI/UX 设计 · 移动端 · 2026</span></div>
+          </a>
+          <a class="work-card" href="work-detail.html">
+            <div class="work-card__cover" style="background:linear-gradient(135deg,#1C1724,#3D2957);">
+              <img src="assets/covers/cover-commerce.png" alt="社交新零售商城展示图">
+              <span class="corner-badge">电商平台</span><span class="work-card__num">02</span>
+            </div>
+            <div class="work-card__info"><span class="work-card__title">社交新零售 · 商城</span><span class="work-card__meta">视觉设计 · Web · 2025</span></div>
+          </a>
+          <a class="work-card" href="work-detail.html">
+            <div class="work-card__cover" style="background:linear-gradient(135deg,#1F1A14,#52381F);">
+              <img src="assets/covers/cover-knowledge.png" alt="行家知识付费平台展示图">
+              <span class="corner-badge">企业服务</span><span class="work-card__num">03</span>
+            </div>
+            <div class="work-card__info"><span class="work-card__title">行家 · 知识付费平台</span><span class="work-card__meta">UI 设计 · Web · 2025</span></div>
+          </a>
+          <a class="work-card" href="work-detail.html">
+            <div class="work-card__cover" style="background:linear-gradient(135deg,#291712,#613314);">
+              <img src="assets/covers/cover-gala.png" alt="年会抽奖系统展示图">
+              <span class="corner-badge">活动营销</span><span class="work-card__num">04</span>
+            </div>
+            <div class="work-card__info"><span class="work-card__title">年会抽奖系统</span><span class="work-card__meta">Web 应用 · 红金主题 · 2026</span></div>
+          </a>
+          <a class="work-card" href="work-detail.html">
+            <div class="work-card__cover" style="background:linear-gradient(135deg,#1A1F24,#294752);">
+              <img src="assets/covers/cover-typography.png" alt="字体实验室展示图">
+              <span class="corner-badge">实验项目</span><span class="work-card__num">05</span>
+            </div>
+            <div class="work-card__info"><span class="work-card__title">字体实验室</span><span class="work-card__meta">创意工具 · Web · 2025</span></div>
+          </a>
+          <a class="work-card" href="work-detail.html">
+            <div class="work-card__cover" style="background:linear-gradient(135deg,#171C21,#2E3D4D);">
+              <img src="assets/covers/cover-dashboard.png" alt="运营数据看板展示图">
+              <span class="corner-badge">数据产品</span><span class="work-card__num">06</span>
+            </div>
+            <div class="work-card__info"><span class="work-card__title">运营数据看板</span><span class="work-card__meta">Dashboard · 设计系统 · 2025</span></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 最新知识笔记 -->
+      <section class="section" aria-labelledby="home-notes-title">
+        <div class="section-head">
+          <div class="title-group">
+            <span class="kicker">02 / KNOWLEDGE NOTES</span>
+            <h2 class="h-section" id="home-notes-title">最新知识笔记</h2>
+          </div>
+          <a class="link-more" href="knowledge.html">浏览全部笔记<img src="assets/icons/i-arrow.svg" alt=""></a>
+        </div>
+        <div class="grid-3" style="margin-top:16px;">
+          <a class="note-card" href="kb-detail.html">
+            <div class="note-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">11.08</span></div>
+            <span class="note-card__title">如何搭建一套可维护的设计系统</span>
+            <div class="note-card__foot"><span class="meta-date">8 min read</span></div>
+          </a>
+          <a class="note-card" href="kb-detail.html">
+            <div class="note-card__head"><span class="cat-badge cat-front">前端</span><span class="meta-date">10.27</span></div>
+            <span class="note-card__title">Vue 3 组件设计的 12 个实践要点</span>
+            <div class="note-card__foot"><span class="meta-date">6 min read</span></div>
+          </a>
+          <a class="note-card" href="kb-detail.html">
+            <div class="note-card__head"><span class="cat-badge cat-eff">效率</span><span class="meta-date">10.15</span></div>
+            <span class="note-card__title">我用 AI 重构工作流的三个月</span>
+            <div class="note-card__foot"><span class="meta-date">5 min read</span></div>
+          </a>
+          <a class="note-card" href="kb-detail.html">
+            <div class="note-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">09.30</span></div>
+            <span class="note-card__title">深色模式配色的取舍与心得</span>
+            <div class="note-card__foot"><span class="meta-date">7 min read</span></div>
+          </a>
+          <a class="note-card" href="kb-detail.html">
+            <div class="note-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">09.12</span></div>
+            <span class="note-card__title">从零训练一个设计专用模型</span>
+            <div class="note-card__foot"><span class="meta-date">11 min read</span></div>
+          </a>
+          <a class="note-card" href="kb-detail.html">
+            <div class="note-card__head"><span class="cat-badge cat-essay">随笔</span><span class="meta-date">08.28</span></div>
+            <span class="note-card__title">设计师该不该学写代码</span>
+            <div class="note-card__foot"><span class="meta-date">4 min read</span></div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 热门工具 -->
+      <section class="section" aria-labelledby="home-tools-title">
+        <div class="section-head">
+          <div class="title-group">
+            <span class="kicker">03 / HOT TOOLS</span>
+            <h2 class="h-section" id="home-tools-title">热门工具</h2>
+          </div>
+          <a class="link-more" href="contact.html">打开工具箱<img src="assets/icons/i-arrow.svg" alt=""></a>
+        </div>
+        <div class="grid-3" style="margin-top:16px;">
+          <div class="tool-card">
+            <div class="tool-card__head"><span class="tool-icon-box"><img src="assets/icons/i-diff.svg" alt=""></span><span class="state-pill">热门</span></div>
+            <span class="tool-card__name">UI Diff Checker</span><span class="tool-card__desc">像素级设计稿与实现差异智能比对</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card__head"><span class="tool-icon-box"><img src="assets/icons/i-counter.svg" alt=""></span><span class="state-pill">实用</span></div>
+            <span class="tool-card__name">Word Counter</span><span class="tool-card__desc">中英文字数与字符实时统计</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card__head"><span class="tool-icon-box"><img src="assets/icons/i-ratio.svg" alt=""></span><span class="state-pill">实用</span></div>
+            <span class="tool-card__name">Ratio Calculator</span><span class="tool-card__desc">设计比例与尺寸快速换算</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card__head"><span class="tool-icon-box"><img src="assets/icons/i-image.svg" alt=""></span><span class="state-pill">新上架</span></div>
+            <span class="tool-card__name">Image Studio</span><span class="tool-card__desc">一键去背景、裁剪与格式转换</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card__head"><span class="tool-icon-box"><img src="assets/icons/i-palette.svg" alt=""></span><span class="state-pill">热门</span></div>
+            <span class="tool-card__name">Palette Gen</span><span class="tool-card__desc">基于主色自动生成和谐配色</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card__head"><span class="tool-icon-box"><img src="assets/icons/i-qr.svg" alt=""></span><span class="state-pill">实用</span></div>
+            <span class="tool-card__name">QR Builder</span><span class="tool-card__desc">批量生成可定制样式二维码</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>
