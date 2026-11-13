@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系我们 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="contact" data-page="contact">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <!-- 页面标题区 -->
+      <section class="page-head" aria-label="页面标题">
+        <div class="page-head__text">
+          <span class="kicker">05 / GET IN TOUCH</span>
+          <h1 class="h-page-title">联系我们</h1>
+          <p class="page-head__desc">有一个想法、一个项目，或只是想打个招呼？留下信息，我会在 24 小时内回复。</p>
+        </div>
+        <span class="availability"><span class="availability__dot"></span>当前可接单 · Freelance</span>
+      </section>
+
+      <!-- 联系双栏 -->
+      <section class="contact-cols" aria-label="联系信息">
+        <div class="contact-left">
+          <h2 class="contact-col-title">联系方式 / CONTACT</h2>
+
+          <div class="info-card">
+            <div class="info-row">
+              <span class="info-row__icon" style="background:#171A15"><img src="assets/icons/i-mail.svg" alt=""></span>
+              <span class="info-row__body">
+                <span class="info-row__k">邮箱</span>
+                <span class="info-row__v" id="copyEmail" title="点击复制邮箱" role="button" tabindex="0">hello@lambodesign.com</span>
+              </span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__icon" style="background:#151A18"><img src="assets/icons/i-chat.svg" alt=""></span>
+              <span class="info-row__body">
+                <span class="info-row__k">微信</span>
+                <span class="info-row__v">lambo_design</span>
+              </span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__icon" style="background:#1A1715"><img src="assets/icons/i-pin.svg" alt=""></span>
+              <span class="info-row__body">
+                <span class="info-row__k">坐标</span>
+                <span class="info-row__v">中国 · 深圳</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="social-card">
+            <span class="contact-col-title" style="font-size:13px">找到我 / ONLINE</span>
+            <div class="social-line">
+              <span class="social-line__name">GitHub</span>
+              <a class="social-line__val" href="https://github.com/Rambolan" target="_blank" rel="noopener">Rambolan <img src="assets/icons/i-external.svg" alt=""></a>
+            </div>
+            <div class="social-line">
+              <span class="social-line__name">Gitee</span>
+              <a class="social-line__val" href="https://gitee.com/rambolan24" target="_blank" rel="noopener">rambolan24 <img src="assets/icons/i-external.svg" alt=""></a>
+            </div>
+            <div class="social-line">
+              <span class="social-line__name">掘金</span>
+              <a class="social-line__val" href="https://juejin.cn" target="_blank" rel="noopener">兰博 <img src="assets/icons/i-external.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 留言表单 -->
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-title">
+            <span class="form-title__h">给我留言</span>
+            <span class="form-title__d">填写下面的信息，我会尽快与你取得联系。</span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="f-name">你的称呼</label>
+              <input class="input" id="f-name" name="name" type="text" placeholder="怎么称呼你" autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-email">电子邮箱</label>
+              <input class="input" id="f-email" name="email" type="email" placeholder="name@example.com" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="field__label">合作类型</span>
+            <div class="select" id="coopSelect" role="button" tabindex="0" aria-haspopup="listbox">
+              <span class="select-value placeholder">请选择合作类型</span>
+              <img src="assets/icons/i-chevron.svg" alt="">
+              <div class="select-menu" hidden role="listbox">
+                <span class="select-option" data-value="UI / UX 设计" role="option">UI / UX 设计</span>
+                <span class="select-option" data-value="设计系统搭建" role="option">设计系统搭建</span>
+                <span class="select-option" data-value="前端开发" role="option">前端开发</span>
+                <span class="select-option" data-value="设计咨询" role="option">设计咨询</span>
+                <span class="select-option" data-value="其他合作" role="option">其他合作</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="f-msg">留言内容</label>
+            <textarea class="textarea" id="f-msg" name="message" placeholder="简单描述一下你的项目或想法..."></textarea>
+          </div>
+
+          <button class="btn" type="submit" style="align-self:flex-start;padding:0 18px;height:44px">发送消息 <img src="assets/icons/i-send.svg" alt="" style="width:15px;height:15px"></button>
+          <p class="form-tip" hidden></p>
+        </form>
+      </section>
+
+      <!-- 合作流程 -->
+      <section class="process-block" aria-labelledby="proc-title">
+        <div class="block-head"><span class="kicker">HOW WE WORK</span><h2 class="block-title" id="proc-title">合作流程</h2></div>
+        <div class="process-row">
+          <div class="process-step"><span class="process-step__n">01</span><span class="process-step__t">需求沟通</span><span class="process-step__d">了解目标、范围与预期，确认合作方向。</span></div>
+          <div class="process-step"><span class="process-step__n">02</span><span class="process-step__t">方案与报价</span><span class="process-step__d">给出执行方案、时间节点与明确报价。</span></div>
+          <div class="process-step"><span class="process-step__n">03</span><span class="process-step__t">设计与开发</span><span class="process-step__d">分阶段交付，关键节点同步进展与反馈。</span></div>
+          <div class="process-step"><span class="process-step__n">04</span><span class="process-step__t">交付与迭代</span><span class="process-step__d">交付成果，提供后续支持与优化建议。</span></div>
+        </div>
+      </section>
+
+      <!-- 常见问题 -->
+      <section class="faq-block" aria-labelledby="faq-title">
+        <div class="block-head"><span class="kicker">FAQ / 常见问题</span><h2 class="block-title" id="faq-title">常见问题</h2></div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-q">
+              <span class="faq-q__t">一个典型的项目周期是多久？</span>
+              <span class="faq-q__icon faq-q__icon--plus"><img src="assets/icons/i-plus.svg" alt=""></span>
+              <span class="faq-q__icon faq-q__icon--minus"><img src="assets/icons/i-minus.svg" alt=""></span>
+            </summary>
+            <p class="faq-a">视范围而定。一个完整的移动端产品设计通常 4–8 周，包含设计系统搭建的项目会更长。具体节奏会在方案阶段与你确认。</p>
+          </details>
+          <details class="faq-item faq-item--closed">
+            <summary class="faq-q">
+              <span class="faq-q__t">是否接受远程协作？</span>
+              <span class="faq-q__icon faq-q__icon--plus"><img src="assets/icons/i-plus.svg" alt=""></span>
+              <span class="faq-q__icon faq-q__icon--minus"><img src="assets/icons/i-minus.svg" alt=""></span>
+            </summary>
+            <p class="faq-a">完全接受。目前多数项目都通过远程方式推进，借助清晰的文档、阶段评审与定期同步，协作效率与面对面没有差别。</p>
+          </details>
+          <details class="faq-item faq-item--closed">
+            <summary class="faq-q">
+              <span class="faq-q__t">可以提供哪些交付物？</span>
+              <span class="faq-q__icon faq-q__icon--plus"><img src="assets/icons/i-plus.svg" alt=""></span>
+              <span class="faq-q__icon faq-q__icon--minus"><img src="assets/icons/i-minus.svg" alt=""></span>
+            </summary>
+            <p class="faq-a">通常包含设计源文件（Figma）、标注与切图、组件规范文档，以及可复用的设计令牌；如需前端还原或协作落地，也可另行约定。</p>
+          </details>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

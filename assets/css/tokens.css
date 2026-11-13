@@ -1,0 +1,65 @@
+/* ============================================================
+   兰博设计摊 · 设计令牌
+   全部数值取自 Ardot 设计稿 fileId=746527880846293
+   设计稿无变量库，令牌为从节点读取结果 1:1 固化
+   ============================================================ */
+:root{
+  /* —— 背景层 —— */
+  --bg:            #0A0A0B;  /* 页面底 / 主内容区 */
+  --bg-sidebar:    #0E0E10;  /* 侧栏、输入框 */
+  --bg-panel:      #101012;  /* 元信息表 / 数据条 */
+  --bg-panel-2:    #0F0F11;  /* 令牌示例卡 */
+  --bg-card:       #141416;  /* 卡片 / Banner / CTA */
+  --bg-active:     #1C1C1F;  /* 当前页菜单 / 激活筛选项 */
+  --bg-chip:       #171715;  /* 分类/技能 chip 底 */
+
+  /* —— 描边 —— */
+  --line:          #27272A;  /* 主描边 */
+
+  /* —— 信号色（单一荧光绿） —— */
+  --signal:        #9EFF00;
+
+  /* —— 文字层级 —— */
+  --text-hi:       #FAFAFA;  /* 大标题 */
+  --text-1:        #F4F4F5;  /* 卡片标题 / 强调 */
+  --text-2:        #D4D4D8;  /* 正文次级 */
+  --text-3:        #A1A1AA;  /* 正文 / 次要 */
+  --text-muted:    #A9B0C2;  /* chip/技能标签文字（低饱和灰） */
+  --text-4:        #71717A;  /* 辅助说明 / kicker */
+  --text-5:        #52525B;  /* 日期 / 占位符 / 极弱 */
+  --text-6:        #3F3F46;  /* 面包屑斜杠 / 序号 */
+  --icon-idle:     #8B8B93;  /* 非当前页图标 */
+
+  /* —— 圆角 —— */
+  --r-sm:   3px;   /* 角标 */
+  --r-4:    4px;   /* 标签 / 插画框 */
+  --r-6:    6px;   /* 按钮 / 输入框 / 卡片 */
+  --r-8:    8px;   /* 图标底 */
+  --r-13:   13px;  /* 小 pill */
+  --r-14:   14px;  /* 技能标签 pill */
+  --r-16:   16px;  /* 兴趣 pill / 头像位 */
+  --r-17:   17px;  /* 顶栏头像 */
+  --r-pill: 100px; /* 状态胶囊 */
+
+  /* —— 布局尺寸 —— */
+  --sidebar-w:   248px;
+  --topbar-h:    76px;
+  --content-pad-v: 40px;   /* 内容区上 padding（多数页 40/48） */
+  --content-pad-h: 48px;
+  --content-max: 1256px;   /* 内容区可用宽 = 1600 - 248 - 48*2 */
+
+  /* —— 字体 —— */
+  --font-sans: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* 语义映射（供组件引用，值取设计稿字面量） */
+:root{
+  --c-accent: var(--signal);
+  --c-surface: var(--bg-card);
+  --c-border: var(--line);
+  --c-ink: var(--text-1);
+  --c-ink-sub: var(--text-3);
+  --c-ink-faint: var(--text-4);
+}
