@@ -7,3 +7,6 @@
 # 依赖与日志
 node_modules/
 *.log
+
+# 原始素材目录（非站点内容，站点图片统一放 app/assets/ 下）
+image/
