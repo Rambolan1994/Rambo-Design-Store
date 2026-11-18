@@ -33,7 +33,7 @@
 .work-card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-6);overflow:hidden;transition:transform .22s ease,border-color .22s ease;}
 .work-card:hover{transform:translateY(-3px);border-color:#3A3A40;}
 .work-card__cover{
-  height:120px;position:relative;display:flex;align-items:center;justify-content:center;
+  aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
 .work-card__cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform .4s ease,opacity .3s ease;}
@@ -44,7 +44,6 @@
   height:22px;display:inline-flex;align-items:center;padding:0 8px;
   border-radius:var(--r-sm);background:var(--bg);font-size:10px;font-weight:500;color:var(--signal);
 }
-.work-card__num{position:relative;z-index:1;font-family:var(--font-inter);font-size:44px;font-weight:900;color:var(--text-6);letter-spacing:-1px;}
 .work-card__info{padding:14px 16px;display:flex;flex-direction:column;gap:6px;}
 .work-card__title{font-size:14px;font-weight:600;color:var(--text-1);}
 .work-card__meta{font-size:11px;color:var(--text-4);}
@@ -78,7 +77,7 @@
 .featured-desc{font-size:13px;line-height:1.65;color:var(--text-3);}
 .tech-tags{display:flex;flex-wrap:wrap;gap:8px;}
 /* 作品集全作品卡：封面 172px，三行信息 */
-.work-card--full .work-card__cover{height:172px;}
+.work-card--full .work-card__cover{aspect-ratio:16/9;}
 .work-card--full .work-card__info{gap:7px;}
 .work-card__tag-label{font-family:var(--font-mono);font-size:10px;color:var(--text-5);}
 
