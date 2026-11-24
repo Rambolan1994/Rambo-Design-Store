@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解决 MAC 安装 Stable Diffusion 报 No matching · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">解决 MAC 笔记本 Stable Diffusion 安装时报 No matching</h1>
+            <p class="article-lead">Mac 上安装 Stable Diffusion 卡在 <span class="mono">No matching distribution found for tb-nightly</span>？问题出在 pip 源缺少依赖包，换一个镜像源即可解决。</p>
+            <div class="author-row">
+              <span class="author-avatar">S</span>
+              <div class="author-info"><span class="author-info__name">shark1357 · 原文作者</span><span class="author-info__meta">2026.11.20 · 原文摘录 · 1 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自 CSDN 博主 shark1357 的排错记录，版权归原作者所有。<a class="inline-link" href="https://blog.csdn.net/shark1357/article/details/131238924" target="_blank" rel="noopener">查看原文</a>。命令保留原样，方便直接复制执行。</p>
+          </blockquote>
+
+          <!-- 00 问题定位 -->
+          <section class="chapter" id="ch0">
+            <h2 class="chapter__title">00 / 问题定位</h2>
+            <p class="chapter__p">安装时重点看这个报错：</p>
+            <p class="chapter__p"><span class="mono">No matching distribution found for tb-nightly</span></p>
+            <p class="chapter__p">这个错误说明，我们的 pip 源中没有对应的 <span class="mono">tb-nightly</span> 依赖包。</p>
+          </section>
+
+          <!-- 01 查看配置 -->
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 查看 pip 配置</h2>
+            <p class="chapter__p">先查看 pip 的配置：</p>
+            <p class="chapter__p"><span class="mono">pip config list</span></p>
+            <p class="chapter__p">看到配置如下：</p>
+            <p class="chapter__p"><span class="mono">global.index-url='https://pypi.tuna.tsinghua.edu.cn/simple'</span></p>
+            <p class="chapter__p">这说明使用的清华 pip 源中缺少 <span class="mono">tb-nightly</span> 这个包。那我们就换个阿里的源。</p>
+          </section>
+
+          <!-- 02 更换镜像源 -->
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 更换镜像源</h2>
+            <p class="chapter__p">使用如下命令切换为阿里源：</p>
+            <p class="chapter__p"><span class="mono">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple</span></p>
+            <p class="chapter__p">再来查看：<span class="mono">pip config list</span>，配置已经变成阿里的地址了：</p>
+            <p class="chapter__p"><span class="mono">global.index-url='https://mirrors.aliyun.com/pypi/simple'</span></p>
+          </section>
+
+          <!-- 03 重新安装 -->
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 重新安装</h2>
+            <p class="chapter__p">重新执行安装：</p>
+            <p class="chapter__p"><span class="mono">./webui.sh</span></p>
+            <p class="chapter__p">即可顺利完成安装。</p>
+          </section>
+
+          <div class="quote-card">
+            <span class="quote-card__t">「 报错 No matching 多半是 pip 源缺包 —— 看清缺哪个依赖，换个镜像源，重新安装。 」</span>
+            <span class="quote-card__by">— 原文要点整理</span>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">Stable Diffusion</span>
+            <span class="chip chip--orange">Mac 排错</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch0">00&nbsp;&nbsp;问题定位</span>
+            <span class="toc__link" data-target="ch1">01&nbsp;&nbsp;查看 pip 配置</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;更换镜像源</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;重新安装</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">整理 2026.11.20</span>
+          <span class="toc__meta-v">阅读时长 1 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>零基础入门 AI 绘画神器 Stable Diffusion · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">超简单！零基础入门 AI 绘画神器 Stable Diffusion</h1>
+            <p class="article-lead">写给完全 0 基础设计师的 SD 入门教程：从软件总览、五大模型、提示词书写与九大参数，到手把手做一个盲盒 IP 案例，先把 AI 绘图的整个流程跑通。</p>
+            <div class="author-row">
+              <span class="author-avatar">靳</span>
+              <div class="author-info"><span class="author-info__name">靳凯杰 · 原文作者</span><span class="author-info__meta">2023.04.24 · 原文摘录 · 15 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自优设网《超简单！教你零基础入门 AI 绘画神器 Stable Diffusion》，版权归原作者所有。操作步骤、链接与配图按原文顺序转录，命令与参数保留英文原样。</p>
+          </blockquote>
+
+          <!-- 00 写在前面 -->
+          <section class="chapter" id="ch0">
+            <h2 class="chapter__title">00 / 写在前面</h2>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/01.jpg" alt="手把手教你 0 基础学会 Stable Diffusion 封面" loading="lazy">
+              <figcaption>FIG 01 · 教程封面</figcaption>
+            </figure>
+            <p class="chapter__p">本文是一篇关于如何使用 Stable Diffusion 绘画的教程，包括软件介绍和案例带练。在开始学之前，我想提前说一下，我所理解的 AI 绘画的本质，就是手替 —— 人提出方案，AI 帮你完成具体的作画过程。</p>
+            <p class="chapter__p">写这篇文章的初衷，网上的 Stable Diffusion 教程太多了，但是我真正去学的时候发现，没有找到一个对小白友好的，被各种复杂的参数、模型的专业词汇劝退。所以在我学了之后，想出一篇这样的教程，希望能帮助完全 0 基础的小白入门，即使完全没有代码能力和手绘能力的设计师也可以学得会。</p>
+            <p class="chapter__p">受限于篇幅，这篇只介绍最基本的操作，并且会手把手带大家去做一个案例出来，让大家先把 AI 绘图的整个流程跑通。如果反馈还不错的话，下一篇补充一些进阶的操作。</p>
+            <p class="chapter__p">关于 AI 带来的焦虑：第一是要去了解它背后的原理，或者说它大概能做什么，了解之后就相对没有那么焦虑了；第二是打不过就加入，让 AI 成为你的一个工具。同时，即使通过 AI 可以抹平大家技法上的差距，但是审美上的差距是无法用 AI 抹平的，而这个可能会变成大家能力差距的重要来源。</p>
+          </section>
+
+          <!-- 01 软件总览 -->
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 软件总览</h2>
+            <p class="chapter__p">先给大家看一下我用 Stable Diffusion（以下称 SD）画出来的图，可以看到画面很细腻且用色也非常精致。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/02.jpg" alt="作者用 SD 绘制的精细画面" loading="lazy">
+              <figcaption>FIG 02 · SD 出图效果</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">1. AI 绘画工具的选择</h3>
+            <p class="chapter__p">目前市面上最流行的两个绘图工具 Midjourney 和 Stable Diffusion 以及它们之间的区别，具体的研发背景等信息这里不做赘述，大家可以自行百度，只说一下对于设计师更关心的五个方面。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/03.jpg" alt="Midjourney 与 Stable Diffusion 五方面对比" loading="lazy">
+              <figcaption>FIG 03 · MJ 与 SD 对比</figcaption>
+            </figure>
+            <p class="chapter__p">综上，从我的个人角度出发，SD 在工作中落地的潜力是要大于 MJ 的，这也是我选择学习和深入研究 SD 的原因。</p>
+
+            <h3 class="chapter__subtitle">2. 软件安装与打开</h3>
+            <p class="chapter__p">关于软件的安装，以及环境的部署，建议直接下载大佬们网上的整合包。这里推荐秋葉 aaaki 大佬的整合包：<a class="inline-link" href="https://www.bilibili.com/video/BV17d4y1C73R/" target="_blank" rel="noopener">BV17d4y1C73R</a>。直接安装一键整合包，极大地降低了安装难度，对小白非常友好。</p>
+            <p class="chapter__p">这里演示一下 Win 下如何安装，Mac 系统的同学也可以在网上找到对应的一键整合包，显卡不太好的同学也可以选择云端部署：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">Mac 芯片</span>见 <a class="inline-link" href="https://www.bilibili.com/video/BV1Kh4y1W7Vg" target="_blank" rel="noopener">BV1Kh4y1W7Vg</a></li>
+              <li><span class="chapter__list-k">云端部署</span>见 <a class="inline-link" href="https://www.bilibili.com/video/BV1po4y1877P/" target="_blank" rel="noopener">BV1po4y1877P</a></li>
+            </ul>
+            <p class="chapter__p">① 下载后是这两个文件，先双击运行一下右边的程序，安装一些必要的运行环境，然后解压左侧的压缩文件到你想要安装的位置。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/04.jpg" alt="下载的整合包与运行环境文件" loading="lazy">
+              <figcaption>FIG 04 · 下载文件</figcaption>
+            </figure>
+            <p class="chapter__p">② 打开解压后的文件夹，找到「A 启动器」的 exe 文件，双击打开。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/05.jpg" alt="找到 A 启动器 exe 文件" loading="lazy">
+              <figcaption>FIG 05 · A 启动器</figcaption>
+            </figure>
+            <p class="chapter__p">③ 打开后如图所示。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/06.jpg" alt="启动器打开后的界面" loading="lazy">
+              <figcaption>FIG 06 · 启动器界面</figcaption>
+            </figure>
+            <p class="chapter__p">④ 点击「一键启动」，稍等片刻后会自动打开浏览器界面，就可以使用了（第一次打开时会有点久）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/07.jpg" alt="一键启动后打开的 webui 浏览器界面" loading="lazy">
+              <figcaption>FIG 07 · 一键启动</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">3. 流程和界面介绍</h3>
+            <p class="chapter__p">这里不去介绍 SD 的实现模型，只介绍一下我们所看到的呈现模型。可以理解为，就像是在做一道菜一样：首先准备原料（提示词和参数），然后按照菜谱（模型）来烹饪，让原料经历各种处理，最后就得到了可供品尝的美食（图像）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/08.jpg" alt="做菜比喻 SD 出图流程" loading="lazy">
+              <figcaption>FIG 08 · 出图流程比喻</figcaption>
+            </figure>
+            <p class="chapter__p">软件的界面整体布局主要是由三大模块构成的：模型、提示词和参数，后面的章节会具体介绍每个模块。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/09.jpg" alt="SD 界面三大模块布局" loading="lazy">
+              <figcaption>FIG 09 · 界面布局</figcaption>
+            </figure>
+          </section>
+
+          <!-- 02 模型 -->
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 模型</h2>
+            <h3 class="chapter__subtitle">1. 模型分类：SD 五大模型</h3>
+            <p class="chapter__p">模型就像是我们做菜时所用到的菜谱。每个模型都会有自己的风格，例如二次元画风、CG 画风等。在 SD 中，目前共有 5 种模型：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">基础底模型（单独使用）</span>checkpoint</li>
+              <li><span class="chapter__list-k">辅助模型（配合底模使用）</span>Embedding、lora、Hypernetwork</li>
+              <li><span class="chapter__list-k">美化模型</span>VAE</li>
+            </ul>
+            <p class="chapter__p">对于这几种的区别和使用方式，可以理解为基础底模型就是烹饪中的「炒」，而辅助模型则是「爆炒、小炒」，最后美化模型则是更细节的方式，例如「盐爆、葱爆、油爆」等。在 SD 中，基础底模型必须有且只能有一种，而后面的模型则没有限制性，可以没有，也可以是一种或多种。</p>
+
+            <h3 class="chapter__subtitle">2. 模型的下载和使用</h3>
+            <p class="chapter__p">我们在下模型时，就可以看到对应的类别：这里以最常用的基础底模型（checkpoint）和 lora 模型为例，介绍一下它们怎么使用。</p>
+            <ul class="chapter__list">
+              <li>① 首先要知道下载的模型是什么类别。如果是从常见网站下载的就知道类别；如果是从其他渠道比如别人的百度网盘链接，可以借助网站 <a class="inline-link" href="https://spell.novelai.dev/" target="_blank" rel="noopener">spell.novelai.dev</a> 去获取模型类别。</li>
+              <li>② 将模型文件放到对应的文件夹中。可以同时放一张模型的预览图，将图片名称改成和模型一样，后面调用模型时就可以直接根据预览图来选择。在模型命名上，可以用 <span class="mono">/</span> 来对模型进行分类整理，例如二次元相关的模型命名为「二次元/XXX」。</li>
+              <li>③ 模型的调用：基础底模型直接选择，没找到就点一下右边的刷新按钮稍等即可；VAE 模型在后面的下拉框中选择，一般采用默认选项，如果出来的图发灰再考虑使用 VAE 模型；其他模型需要先点一下 icon，再点一下想用的模型，此时正向提示词输入框会出现对应的模型，想取消调用再点一下模型或直接在输入框中删掉即可。某些模型还需要在正向提示词输入框中输入特定的触发词，才可以让模型发挥效果。</li>
+            </ul>
+          </section>
+
+          <!-- 03 提示词 -->
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 提示词</h2>
+            <p class="chapter__p">提示词也就是我们对 AI 的指令。<span class="mono">正向提示词</span>即对画面的描述，例如一个女孩、月亮、吉他、沙发等；<span class="mono">反向提示词</span>指你不想在画面中出现的元素或属性，例如低质量、畸形的手等。</p>
+
+            <h3 class="chapter__subtitle">1. 基本规范</h3>
+            <ul class="chapter__list">
+              <li>提示词包括标点符号全部用英文的。</li>
+              <li>单词、短语、句子基本上是等效的。例如 <span class="mono">1girl, sofa, sitting</span> 与 <span class="mono">A girl sitting on the sofa</span> 对 SD 来说是等效的。</li>
+            </ul>
+
+            <h3 class="chapter__subtitle">2. 书写提示词的整体思路</h3>
+            <p class="chapter__p">在给正向提示词的时候，我们一般通过分类描述的方式来给出，具体可以分为以下三类：整体描述、主体、场景。</p>
+            <p class="chapter__p">① <span class="chapter__list-k">整体描述</span>包括四个方面：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">画质</span>高画质还是中等画质或者低画质，2k 或者 4k 等等</li>
+              <li><span class="chapter__list-k">画风</span>CG、二次元、真人等</li>
+              <li><span class="chapter__list-k">镜头</span>画面中人物的占比，半身像还是全身像</li>
+              <li><span class="chapter__list-k">色调</span>冷色调或暖色调</li>
+            </ul>
+            <p class="chapter__p">② <span class="chapter__list-k">主体</span>：对于人物主体的描述包括三个方面 —— 头部、服饰、姿势。</p>
+            <p class="chapter__p">③ <span class="chapter__list-k">头部</span>：包括的内容和我们玩游戏时捏脸的内容差不多：</p>
+            <ul class="chapter__list">
+              <li>眼睛大小、颜色和形状，鼻子大小和形状，嘴巴大小和形状，下巴形状等等。</li>
+              <li>皮肤颜色和纹理：人物的皮肤颜色和纹理，例如光滑或有皱纹的皮肤等等。</li>
+              <li>面部特征细节：进一步描述人物的面部细节，例如眼睛的纹理、唇色、发色等等。</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/10.jpg" alt="人物头部捏脸细节描述示意" loading="lazy">
+              <figcaption>FIG 10 · 头部细节描述</figcaption>
+            </figure>
+            <p class="chapter__p">④ <span class="chapter__list-k">服饰</span>：包括衣服、裤子、鞋以及其他更细节的比如袜子之类的。</p>
+            <p class="chapter__p">⑤ <span class="chapter__list-k">姿势</span>：即人物的姿势，坐立跑等。</p>
+            <p class="chapter__p">⑥ <span class="chapter__list-k">场景</span>：基础的场景描述一般包括三个内容 —— 时间、地点、天气，进阶的表达可以加入一些细节，例如天空中的蝴蝶、花瓣等。</p>
+
+            <h3 class="chapter__subtitle">3. 提示词的语法</h3>
+            <p class="chapter__p">仅仅有了提示词还不够，我们还需要知道怎么把提示词组成 SD 可以识别的格式。</p>
+            <p class="chapter__p">① <span class="chapter__list-k">连接方式</span>：不同的提示词之间用英文逗号分隔；提示词越靠前，权重越高，所以主体应该放在前面。</p>
+            <p class="chapter__p">② <span class="chapter__list-k">强化 / 弱化方式</span>：</p>
+            <ul class="chapter__list">
+              <li><span class="mono">(提示词:权重数值)</span>。数值取值范围是 0.1～100，默认是 1，小于 1 是弱化，大于 1 是强化。例如 <span class="mono">(a girl:0.8)</span>。</li>
+              <li><span class="mono">(提示词)</span> 表示强化、<span class="mono">[提示词]</span> 表示弱化。允许套多层来增强强化的程度。例如 <span class="mono">((a girl))</span>。</li>
+            </ul>
+            <p class="chapter__p">③ <span class="chapter__list-k">进阶玩法</span>：推荐几个提示词网站，在掌握了基本用法后再去看这些网站就会更得心应手：</p>
+            <ul class="chapter__list">
+              <li><a class="inline-link" href="https://prompttool.com/NovelAI" target="_blank" rel="noopener">prompttool.com/NovelAI</a></li>
+              <li><a class="inline-link" href="https://wolfchen.top/tag/" target="_blank" rel="noopener">wolfchen.top/tag/</a></li>
+              <li><a class="inline-link" href="https://moonvy.com/apps/ops/" target="_blank" rel="noopener">moonvy.com/apps/ops/</a></li>
+              <li><a class="inline-link" href="https://poe.com/ChatGpt" target="_blank" rel="noopener">poe.com/ChatGpt</a></li>
+            </ul>
+          </section>
+
+          <!-- 04 参数 -->
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 参数</h2>
+            <p class="chapter__p">这里不去说太多参数的官方解释，而且在初期并不是所有的参数都需要了解，所以直接用通俗易懂的语言介绍需要用到的参数是什么，以及怎么用。</p>
+
+            <h3 class="chapter__subtitle">1. 采样方法</h3>
+            <p class="chapter__p">一般情况下使用 <span class="mono">DPM++ 2M</span>、<span class="mono">DPM++ 2M Karras</span> 或 <span class="mono">UniPC</span>；想要一些变化，就用 <span class="mono">Euler a</span>、<span class="mono">DPM++ SDE</span>、<span class="mono">DPM++ SDE Karras</span>、<span class="mono">DPM2 a Karras</span>。</p>
+
+            <h3 class="chapter__subtitle">2. 迭代步数</h3>
+            <p class="chapter__p">这里指的是 SD 用多少步把你的描述画出来，一般 20 到 40 步就足够了。迭代步数每增加一步，都会给 AI 更多的机会去比对提示和当前结果并进行调整。更高的迭代步数需要更多的计算时间，但并不意味着步数越高质量越好。</p>
+            <p class="chapter__p">相同提示词和参数、不同迭代步数时的表现：在这组参数下，步数在 32 左右表现最好，从 32 到 40 提升不大，到 48 时已出现一些畸形，到 64 时腿部已经完全畸形了。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/11.jpg" alt="不同迭代步数的出图表现对比" loading="lazy">
+              <figcaption>FIG 11 · 迭代步数对比</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">3. 面部修复</h3>
+            <p class="chapter__p">根据个人喜好开关，这个对最终成像效果影响不大。</p>
+
+            <h3 class="chapter__subtitle">4. 平铺图</h3>
+            <p class="chapter__p">这个一般用不到。</p>
+
+            <h3 class="chapter__subtitle">5. 高分辨率修复</h3>
+            <p class="chapter__p">通俗来说，就是以重新绘制的方式对图像进行放大，并且在放大的同时补充一些细节。打开后会出现一些子参数：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">放大算法</span>用默认值即可。</li>
+              <li><span class="chapter__list-k">高分迭代步数</span>一般选在 10~20 即可。以图为例，步数超过 20 后就开始出现畸形。</li>
+              <li><span class="chapter__list-k">重绘幅度</span>一般是 0.5~0.8 之间。幅度过小效果不好，幅度过大和原图差异太大。</li>
+              <li><span class="chapter__list-k">放大倍率</span>指最终图与原图分辨率的比值。例如默认生成的图是 512×512，设定为 2 倍后最终产出 1024×1024。</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/12.jpg" alt="高分辨率修复的高分迭代步数设置" loading="lazy">
+              <figcaption>FIG 12 · 高分迭代步数</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/13.jpg" alt="高分辨率修复的重绘幅度设置" loading="lazy">
+              <figcaption>FIG 13 · 重绘幅度</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">6. 总批次数和单批数量</h3>
+            <p class="chapter__p">这个是指一次性出图的数量。以搬砖为例，同样是搬 4 块砖：体力好的人一次搬 4 块、只搬一次，对应 SD 中就是总批次数 1、单批数量 4；体力不好的人一次只能搬一块、需要搬 4 次，对应总批次数 4、单批数量 1。一般而言，如果不是顶级显卡，我们都会保持单批数量为 1，去改变总批次数来增加一次性出图的数量。</p>
+
+            <h3 class="chapter__subtitle">7. 提示词引导系数</h3>
+            <p class="chapter__p">最终生成的画面和你描述词的趋近程度，一般设置为 7~15 之间，太高也会出现问题。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/14.jpg" alt="提示词引导系数设置" loading="lazy">
+              <figcaption>FIG 14 · 引导系数</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">8. 随机数种子</h3>
+            <p class="chapter__p">随机数种子就像做一道菜时加入的特定调料，它可以影响最终生成图像的过程。不同的随机数种子会生成不同的图像，每个图都会有它对应的随机数种子，如果想还原这张图，或者绘制一张相似的图，必须保证这个值是相同的。随机数种子不变的情况下，即使模型发生了改变，最终生成图的大概结构和配色也会有一定相似性。我们可以在输入框中输入特定的值以固定随机数种子，否则可以点一下旁边的骰子 icon，变成 <span class="mono">-1</span>（随机值）让模型采用随机值生成图像。</p>
+
+            <h3 class="chapter__subtitle">9. 变异随机种子</h3>
+            <p class="chapter__p">在理解了随机种子之后，变异随机种子相当于又加入了第二种特定调料，而后面的变异强度就指的是两种调料的占比，数值越大越接近第二种。数值为 0 时，就指的是完全不用变异随机种子。一般用于确定了图后，对图生成其他相似画面的图像。例如在做 IP 时，通过加入变异随机种子，可以实现画面内容不变的情况下生成带有些许差异的画，从中选择更优的。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/15.jpg" alt="重要参数总结" loading="lazy">
+              <figcaption>FIG 15 · 参数总结</figcaption>
+            </figure>
+          </section>
+
+          <!-- 05 案例演示 -->
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 案例演示：盲盒 IP</h2>
+            <p class="chapter__p">这里以做一个盲盒 IP 为例，演示一下基础的文生图流程。在了解了基础概念后，其他的操作就相对简单了，大家可以自行去探索。整理思路：</p>
+            <ul class="chapter__list">
+              <li>风格探索与主体内容</li>
+              <li>对合适的图进行细节补充与修复</li>
+            </ul>
+
+            <h3 class="chapter__subtitle">1. 模型下载与安装</h3>
+            <p class="chapter__p">首先我们去 C 站下载对应的模型，以这个盲盒模型为例：<a class="inline-link" href="https://civitai.com/models/25995/blindbox" target="_blank" rel="noopener">civitai.com/models/25995/blindbox</a>。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/16.jpg" alt="C 站盲盒模型页面" loading="lazy">
+              <figcaption>FIG 16 · 盲盒模型页</figcaption>
+            </figure>
+            <p class="chapter__p">从右边模型信息可以知道两个重要的信息：这个模型的种类是 LORA 模型，以及它的触发词是 <span class="mono">full body, chibi</span>。所谓触发词指的就是，只有在将触发词加入到正向提示语的输入框中，才能触发这个 Lora 模型的效果。LORA 模型是一种辅助模型，需要配合基础底模型来使用，这里一般也推荐使用作者示例图中所使用的基础底模型。点开一个示例图，可以看到包括基础底模型、提示语以及参数在内的信息。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/17.jpg" alt="盲盒模型示例图信息" loading="lazy">
+              <figcaption>FIG 17 · 示例图信息</figcaption>
+            </figure>
+            <p class="chapter__p">作者也贴心得给出了对应资源的下载链接：<a class="inline-link" href="https://civitai.com/models/7371?modelVersionId=46846" target="_blank" rel="noopener">civitai.com/models/7371</a>。我们将两个模型下载好后，分别放到对应的文件夹中：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">基础底模型（checkpoint）</span>novelai-webui-aki-v4/models/Stable-diffusion</li>
+              <li><span class="chapter__list-k">lora 模型</span>novelai-webui-aki-v4/models/lora</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/18.jpg" alt="底模与 lora 模型文件夹路径" loading="lazy">
+              <figcaption>FIG 18 · 模型文件夹</figcaption>
+            </figure>
+            <p class="chapter__p">这里有两个小技巧：一是在 Lora 中新建一个文件夹改为「盲盒」，对模型进行分类管理；二是保存模型时再下载一张示例图，将名称改成和 Lora 模型一样，然后放在模型文件旁边，这样在 SD 界面就可以预览模型效果。</p>
+            <p class="chapter__p">接下来，打开 web ui 界面，点击模型后的刷新按钮，并将左上角的第一个下拉框选择到对应的模型。其中 Lora 模型是默认隐藏的，需要点一下生成按钮下的第三个 icon 才会显示。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/19.jpg" alt="在 webui 中选择模型并调用 Lora" loading="lazy">
+              <figcaption>FIG 19 · 模型调用</figcaption>
+            </figure>
+            <p class="chapter__p">到这里，我们完成了模型的下载和基础底模型的调用。</p>
+
+            <h3 class="chapter__subtitle">2. 提示词的书写</h3>
+            <p class="chapter__p">对于新手，建议先从模仿开始。打开 C 站盲盒模型的页面，点击示例图，可以看到包括提示词在内的各种信息。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/20.jpg" alt="盲盒模型示例图的提示词信息" loading="lazy">
+              <figcaption>FIG 20 · 示例图提示词</figcaption>
+            </figure>
+            <p class="chapter__p">把提示词复制下来，英文不好的小伙伴可以直接复制到翻译工具中。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/21.jpg" alt="复制提示词到翻译工具" loading="lazy">
+              <figcaption>FIG 21 · 提示词翻译</figcaption>
+            </figure>
+            <p class="chapter__p">接下来对这段关键词做一个简单的分析拆解：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">整体描述</span>(杰作)，(最好的质量)，(超细节)，(全身:1.2)，(美丽的细节脸)，(美丽的细节眼睛)</li>
+              <li><span class="chapter__list-k">触发词</span>chibi</li>
+              <li><span class="chapter__list-k">人物 &amp; 场景</span>一个女孩，可爱，微笑，张开嘴，花，户外，弹吉他，音乐，贝雷帽，拿着吉他，夹克，腮红，树，衬衫，短发，樱花，绿色头饰，模糊，棕色头发，腮红贴纸，长袖，刘海，耳机，黑色头发，粉红色的花</li>
+            </ul>
+            <p class="chapter__p">我们可以直接复用整体描述的部分，将这部分复制到正向提示词输入框中，然后对后面的人物和场景部分重写。这里用到之前介绍过的书写提示词中人物和场景的技巧：「眼睛，皮肤、头发、服饰、姿势、时间、地点」，按着这个顺序对画面描述如下。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/22.jpg" alt="按人物与场景技巧重写提示词" loading="lazy">
+              <figcaption>FIG 22 · 重写提示词</figcaption>
+            </figure>
+            <p class="chapter__p">将英文复制到正向提示词中，接下来点击一下盲盒的 Lora 模型，正向提示词部分就多了一句，这句话就表示对 lora 模型的调用。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/23.jpg" alt="点击 Lora 模型后正向提示词新增调用语句" loading="lazy">
+              <figcaption>FIG 23 · Lora 调用</figcaption>
+            </figure>
+            <p class="chapter__p">最后一步，将示例图的负向提示词也复制到 SD 中，就得到了最终的提示词。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/24.jpg" alt="复制负向提示词后的最终提示词" loading="lazy">
+              <figcaption>FIG 24 · 最终提示词</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">3. 参数设置</h3>
+            <p class="chapter__p">参数设置这里，采样方式、采样迭代步数和提示词引导系数三个参数建议设置成和 Lora 模型示例图一致的参数，这样能比较好地发挥 Lora 模型的效果。作为前期探索风格的阶段，总批次数和单批数量可以设置成 9 和 1，随机种子设置成 <span class="mono">-1</span>，这样一次性会产出 9 张不同的图，方便选择。高分辨率修复在前期不建议打开，可以在图的内容确定后再打开，进行细节优化。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/25.jpg" alt="按示例图设置参数" loading="lazy">
+              <figcaption>FIG 25 · 参数设置</figcaption>
+            </figure>
+            <p class="chapter__p">设置好参数后点击生成。由于是随机的，生成的图像会和这里不一样，但是整体的画面都是很相似的。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/26.jpg" alt="第一批量生成的盲盒图" loading="lazy">
+              <figcaption>FIG 26 · 首批量出图</figcaption>
+            </figure>
+            <p class="chapter__p">可以看到，整体图片的风格已经比较满意了，除了手的部分还有些问题。接下来就可以选择一张最满意的，去补充和修复细节，这里以第 6 张图为例。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/27.jpg" alt="选中第 6 张图准备修复" loading="lazy">
+              <figcaption>FIG 27 · 选择第 6 张图</figcaption>
+            </figure>
+            <p class="chapter__p">我们接下来要做的是这三件事：</p>
+            <ul class="chapter__list">
+              <li>固定这张画面，保证下一张画是在这个基础上完成的</li>
+              <li>补充画面的细节和提高分辨率</li>
+              <li>修复手的部分</li>
+            </ul>
+            <p class="chapter__p">首先是第一步固定画面：每个图都会有它对应的随机种子，想还原这张图或者绘制一张相似的图，必须保证这个值是相同的。所以我们需要找到这张图的 seed 值，填入参数栏中的随机数种子输入框中。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/28.jpg" alt="填入 seed 值固定画面" loading="lazy">
+              <figcaption>FIG 28 · 固定种子</figcaption>
+            </figure>
+            <p class="chapter__p">下一步是对画面进行细节补充，这一步会用到高分辨率修复的参数：先选中第 6 张图，把高清修复采样次数调整到 15，重绘幅度调整到 0.6。注意这一步要把总批次数和单批数量调整到 1，否则还是会一次性生成 9 张图，需要较长的时间。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/29.jpg" alt="高分辨率修复补充细节" loading="lazy">
+              <figcaption>FIG 29 · 高清修复细节</figcaption>
+            </figure>
+            <p class="chapter__p">最后一步，我们去修复手的问题，这里采用补充反向提示词的方式来完成。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/30.jpg" alt="用翻译工具补充反向提示词" loading="lazy">
+              <figcaption>FIG 30 · 反向提示词翻译</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/31.jpg" alt="填入反向提示词修复手部" loading="lazy">
+              <figcaption>FIG 31 · 修复手部</figcaption>
+            </figure>
+            <p class="chapter__p">将英文翻译填入反向提示词中后，点击生成，就可以得到这么一张效果还算不错的图了。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/32.jpg" alt="修复后的盲盒效果图" loading="lazy">
+              <figcaption>FIG 32 · 修复后效果</figcaption>
+            </figure>
+            <p class="chapter__p">这只是一个简单的例子，里面用到的提示词并不多，我们可以继续加入提示词来丰富画面、提升细节，例如加入光效描述到正向提示词中。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/33.jpg" alt="加入光效描述的正向提示词" loading="lazy">
+              <figcaption>FIG 33 · 加入光效</figcaption>
+            </figure>
+            <p class="chapter__p">生成的图像如下，可以看到又增加了一些光感，整体细节和品质又提升了一些。这里仅仅以此为范例，大家可以去增加自己想要的各种提示词来生成自己想要的图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-basics/34.jpg" alt="加入光效后的最终图像" loading="lazy">
+              <figcaption>FIG 34 · 最终图像</figcaption>
+            </figure>
+          </section>
+
+          <!-- 06 推荐模型 -->
+          <section class="chapter" id="ch6">
+            <h2 class="chapter__title">06 / 结语与推荐模型</h2>
+            <p class="chapter__p">文章最后再给大家推荐 5 个我认为非常优质的模型：</p>
+            <ul class="chapter__list">
+              <li><a class="inline-link" href="https://civitai.com/models/9409/or-anything-v5" target="_blank" rel="noopener">anything-v5</a></li>
+              <li><a class="inline-link" href="https://civitai.com/models/12597/moxin" target="_blank" rel="noopener">moxin</a></li>
+              <li><a class="inline-link" href="https://civitai.com/models/18323/xiaorenshu" target="_blank" rel="noopener">xiaorenshu</a></li>
+              <li><a class="inline-link" href="https://civitai.com/models/6755/cetus-mix" target="_blank" rel="noopener">cetus-mix</a></li>
+              <li><a class="inline-link" href="https://civitai.com/models/7240/meinamix" target="_blank" rel="noopener">meinamix</a></li>
+            </ul>
+            <p class="chapter__p">AI 只是手替，方案在人。把提示词、模型与参数这套流程跑通之后，剩下的就是不断练习审美与表达 —— 这是 AI 抹平不了的部分。</p>
+          </section>
+
+          <div class="quote-card">
+            <span class="quote-card__t">「 AI 绘画的本质是手替：人提出方案，AI 完成作画。技法可以被抹平，审美不行。 」</span>
+            <span class="quote-card__by">— 原文要点整理</span>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">Stable Diffusion</span>
+            <span class="chip chip--orange">零基础入门</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch0">00&nbsp;&nbsp;写在前面</span>
+            <span class="toc__link" data-target="ch1">01&nbsp;&nbsp;软件总览</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;模型</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;提示词</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;参数</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;案例演示</span>
+            <span class="toc__link" data-target="ch6">06&nbsp;&nbsp;结语与推荐</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">原文 2023.04.24</span>
+          <span class="toc__meta-v">阅读时长 15 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

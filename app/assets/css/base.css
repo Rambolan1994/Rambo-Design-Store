@@ -47,6 +47,7 @@ img{display:block;max-width:100%;}
 .brand__sub{font-family:var(--font-mono);font-size:9px;font-weight:500;color:var(--text-4);letter-spacing:.6px;}
 .sidebar__divider{height:1px;background:var(--line);}
 .nav{display:flex;flex-direction:column;gap:4px;padding:18px 12px 0;}
+.nav-toggle{display:none;}
 .nav__item{
   position:relative;
   display:flex;align-items:center;gap:14px;
@@ -57,14 +58,34 @@ img{display:block;max-width:100%;}
 }
 .nav__item:hover{background:rgba(255,255,255,.035);color:var(--text-2);}
 .nav__item.is-active{background:var(--bg-active);color:var(--signal);}
+/* 有二级菜单的一级项：桌面端仅作分组标签，不可点击 */
+.nav__item--group{pointer-events:none;cursor:default;}
 .nav__indicator{
   position:absolute;left:0;top:50%;transform:translateY(-50%);
   width:3px;height:20px;background:var(--signal);border-radius:2px;
 }
-.nav__icon{width:18px;height:18px;flex:0 0 18px;display:flex;align-items:center;justify-content:center;color:inherit;}
-.nav__icon img{width:18px;height:18px;}
+.nav__icon{
+  width:18px;height:18px;flex:0 0 18px;
+  background-color:currentColor;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:center;mask-position:center;
+  -webkit-mask-size:contain;mask-size:contain;
+  transition:background-color .2s ease;
+}
 .nav__label{font-size:14px;font-weight:400;}
 .nav__item.is-active .nav__label{font-weight:500;}
+.nav__sub{display:flex;flex-direction:column;gap:2px;padding:2px 0 4px 34px;}
+.nav__subitem{
+  position:relative;display:flex;align-items:center;gap:10px;
+  height:34px;padding:0 12px;border-radius:6px;
+  color:var(--text-4);transition:background .2s ease,color .2s ease;
+}
+.nav__subitem:hover{background:rgba(255,255,255,.035);color:var(--text-2);}
+.nav__subitem.is-active{color:var(--signal);}
+.nav__subdot{width:4px;height:4px;flex:0 0 4px;border-radius:50%;background:currentColor;opacity:.6;}
+.nav__subitem.is-active .nav__subdot{opacity:1;box-shadow:0 0 6px rgba(158,255,0,.5);}
+.nav__sublabel{font-size:13px;font-weight:400;}
+.nav__subitem.is-active .nav__sublabel{font-weight:500;}
 .sidebar__spacer{flex:1;}
 .sidebar__foot{
   display:flex;flex-direction:column;gap:14px;
@@ -205,9 +226,23 @@ img{display:block;max-width:100%;}
 .page-head__desc{font-size:13px;line-height:1.5;color:var(--text-3);}
 
 /* ---------- 返回栏 ---------- */
-.back-bar{display:inline-flex;align-items:center;gap:8px;color:var(--text-3);font-size:12px;transition:color .2s ease;align-self:flex-start;}
-.back-bar:hover{color:var(--signal);}
-.back-bar img{width:14px;height:14px;transform:rotate(90deg);}
+.back-bar{
+  display:inline-flex;align-items:center;gap:10px;
+  align-self:flex-start;height:36px;padding:0 14px 0 7px;margin-bottom:28px;
+  color:var(--text-2);font-size:12px;font-weight:500;text-decoration:none;
+  background:var(--bg-card);border:1px solid var(--line);border-radius:var(--r-pill);
+  cursor:pointer;
+  transition:color .2s ease,border-color .2s ease,background-color .2s ease;
+}
+.back-bar:hover{
+  color:var(--signal);border-color:rgba(158,255,0,.45);background:rgba(158,255,0,.06);
+}
+.back-bar img{
+  box-sizing:content-box;width:12px;height:12px;padding:6px;border-radius:50%;
+  background:rgba(158,255,0,.12);transform:rotate(180deg);
+  transition:background-color .2s ease,transform .2s ease;
+}
+.back-bar:hover img{background:rgba(158,255,0,.22);transform:translateX(-2px) rotate(180deg);}
 
 /* ---------- CTA 通用块 ---------- */
 .cta-block{
@@ -237,16 +272,63 @@ img{display:block;max-width:100%;}
 @media (max-width:860px){
   .app{flex-direction:column;}
   .sidebar{
-    position:static;width:100%;height:auto;flex:none;
+    position:sticky;top:0;z-index:40;
+    width:100%;height:auto;flex:none;
     flex-direction:row;align-items:center;justify-content:space-between;
     padding:0 18px;border-right:0;border-bottom:1px solid var(--line);
   }
   .sidebar__logo{padding:14px 0;}
   .sidebar__divider,.sidebar__spacer,.sidebar__foot{display:none;}
-  .nav{flex-direction:row;padding:0;gap:2px;overflow-x:auto;}
-  .nav__item{height:40px;padding:0 10px;flex:0 0 auto;white-space:nowrap;}
-  .nav__indicator{top:auto;bottom:0;transform:none;width:100%;height:2px;}
-  .nav__label{font-size:12px;white-space:nowrap;}
+
+  /* —— 汉堡包按钮 —— */
+  .nav-toggle{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+    width:40px;height:40px;flex:0 0 40px;padding:0;
+    background:transparent;border:1px solid var(--line);border-radius:6px;
+    transition:border-color .2s ease;
+  }
+  .nav-toggle:hover{border-color:rgba(158,255,0,.45);}
+  .nav-toggle span{
+    display:block;width:18px;height:2px;border-radius:2px;background:var(--text-2);
+    transition:transform .25s ease,opacity .2s ease,background .2s ease;
+  }
+  /* 展开时三条线变 X：上线下移旋转、中线淡出、下线回升旋转 */
+  .nav-toggle.is-active span{background:var(--signal);}
+  .nav-toggle.is-active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.is-active span:nth-child(2){opacity:0;}
+  .nav-toggle.is-active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* —— 一级下拉面板：默认收起，点击汉堡包展开 —— */
+  .nav{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:2px;
+    padding:10px 12px 16px;
+    background:var(--bg-sidebar);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 16px 36px rgba(0,0,0,.45);
+    max-height:calc(100vh - 70px);overflow-y:auto;
+  }
+  .nav.is-open{display:flex;animation:navDrop .22s ease both;}
+  @keyframes navDrop{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+  .nav__item{height:44px;padding:0 12px;flex:0 0 auto;white-space:nowrap;}
+  /* 移动端一级项恢复可点击（含分组项，用于展开二级） */
+  .nav__item--group{pointer-events:auto;cursor:pointer;}
+  .nav__indicator{top:50%;bottom:auto;transform:translateY(-50%);width:3px;height:20px;}
+  .nav__label{font-size:14px;white-space:nowrap;}
+
+  /* —— 二级手风琴：默认收起，点击一级项展开 —— */
+  .nav__sub{display:none;padding:2px 0 8px 30px;}
+  .nav__sub.is-open{display:flex;animation:navDrop .2s ease both;}
+  .nav__subitem{height:40px;}
+  /* 分组项右侧展开箭头 */
+  .nav__item--group::after{
+    content:"";margin-left:auto;width:7px;height:7px;flex:0 0 7px;
+    border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+    transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s ease;opacity:.7;
+  }
+  .nav__item--group.is-expanded::after{transform:rotate(-135deg) translate(-1px,-1px);}
+
   .brand__name{white-space:nowrap;}
   .topbar{position:static;padding:0 20px;}
   .search{width:160px;}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 辅助动效弹窗设计 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">AI 辅助动效弹窗设计</h1>
+            <p class="article-lead">用即梦做弹窗动效的极简工作流：给一张开始图和一张结果图，生成两者之间的过渡动效，再以 AEpag 格式交付开发。</p>
+            <div class="author-row">
+              <span class="author-avatar">A</span>
+              <div class="author-info"><span class="author-info__name">原文摘录 · 兰博整理</span><span class="author-info__meta">2026.11.20 · 原文摘录 · 1 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自一份简短的 AI 动效实践笔记，记录了从出图到交付的关键两步。以下为原文要点整理。</p>
+          </blockquote>
+
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 用即梦生成动效</h2>
+            <p class="chapter__p">工具用即梦，方式是给两张图让 AI 补全中间的运动过程：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">开始图</span>——动效的起始画面。</li>
+              <li><span class="chapter__list-k">结果图</span>——动效的结束画面。</li>
+            </ul>
+            <p class="chapter__p">把开始图与结果图一起交给即梦，由它生成两者之间的过渡动效。这种「首尾帧 driven」的方式省去逐帧制作，适合快速产出弹窗类的短动效方案。</p>
+          </section>
+
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 交付开发</h2>
+            <p class="chapter__p">动效确认后，以 <span class="chapter__list-k">AEpag 格式</span>交付开发，作为最终的实现产物。</p>
+            <div class="quote-card">
+              <span class="quote-card__t">「 开始图 + 结果图 → 即梦生成动效 → AEpag 格式交付开发。 」</span>
+              <span class="quote-card__by">— 原文工作流整理</span>
+            </div>
+          </section>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">动效设计</span>
+            <span class="chip chip--orange">即梦</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch1">01&nbsp;&nbsp;用即梦生成动效</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;交付开发</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">整理 2026.11.20</span>
+          <span class="toc__meta-v">阅读时长 1 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stable Diffusion 进阶 · ControlNet 超全教程 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">Stable Diffusion 进阶 · ControlNet 超全教程</h1>
+            <p class="article-lead">来自优设网言川 Artie 的进阶教程：从 ControlNet 是什么、插件与模型安装，到 Canny、M-LSD、法线贴图、OpenPose、涂鸦、伪涂鸦、语义分割七种模型的完整案例演示，一步步精准控制 AI 出图。</p>
+            <div class="author-row">
+              <span class="author-avatar">言</span>
+              <div class="author-info"><span class="author-info__name">言川 Artie · 原文作者</span><span class="author-info__meta">2023.05.06 · 原文摘录 · 20 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自优设网《Stable Diffusion 进阶！姥姥都能看懂的 ControlNet 超全教程！》，版权归原作者所有。操作步骤、提示词与配图按原文顺序转录，方便对照练习。</p>
+          </blockquote>
+
+          <!-- 00 前言 -->
+          <section class="chapter" id="ch0">
+            <h2 class="chapter__title">前言</h2>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/01.jpg" alt="ControlNet 教程封面" loading="lazy">
+              <figcaption>FIG 01 · 教程封面</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/02.jpg" alt="教程前言与系列说明" loading="lazy">
+              <figcaption>FIG 02 · 写在前面</figcaption>
+            </figure>
+            <p class="chapter__p">Hello，大家好，言川又来写教程啦！这是一篇继《外婆都能看懂的 Stable Diffusion 入门教程》之后的文章，如果你还没有安装并了解 Stable Diffusion 这个软件，那么一定要先去看看入门教程，然后安装 Stable Diffusion。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/03.jpg" alt="入门教程回顾提示" loading="lazy">
+              <figcaption>FIG 03 · 先阅读入门教程</figcaption>
+            </figure>
+          </section>
+
+          <!-- 01 什么是 ControlNet -->
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / ControlNet（图像精准控制）是什么？</h2>
+            <p class="chapter__p">ControlNet 是一个用于控制 AI 图像生成的插件。它使用了一种称为「Conditional Generative Adversarial Networks」（条件生成对抗网络）的技术来生成图像。与传统的生成对抗网络不同，ControlNet 允许用户对生成的图像进行精细的控制。这使得 ControlNet 在许多应用场景中非常有用，例如计算机视觉、艺术设计、虚拟现实等等。总之，ControlNet 可以帮助用户精准控制 AI 图像的生成，以获得更好的视觉效果。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/04.jpg" alt="ControlNet 概念示意图" loading="lazy">
+              <figcaption>FIG 04 · ControlNet 概念示意</figcaption>
+            </figure>
+            <p class="chapter__p">看着有点复杂是不是，没关系，我给你们总结一下：</p>
+            <ul class="chapter__list">
+              <li>在 ControlNet 出现之前，我们在生成图片之前，永远不知道 AI 能给我们生成什么，就像抽卡一样难受。</li>
+              <li>ControlNet 出现之后，我们就能通过模型精准地控制图像生成，比如：上传线稿让 AI 帮我们填色渲染、控制人物的姿态、图片生成线稿等等。</li>
+            </ul>
+            <p class="chapter__p">这下看懂了吗，就很哇塞。大家网上看到的一些线稿生成的图片，就是用到的 ControlNet，是 Stable Diffusion 必装的插件之一。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/05.jpg" alt="ControlNet 线稿控制效果示例" loading="lazy">
+              <figcaption>FIG 05 · 线稿控制效果示例</figcaption>
+            </figure>
+          </section>
+
+          <!-- 02 插件安装 -->
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / ControlNet 插件安装</h2>
+            <p class="chapter__p">首先，咱们先打开秋叶大佬的启动器，并且点击更新（切换）到最新版本，这一步的目的是为了防止出现奇奇怪怪的报错。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/06.jpg" alt="秋叶启动器更新到最新版本" loading="lazy">
+              <figcaption>FIG 06 · 启动器更新到最新版</figcaption>
+            </figure>
+            <p class="chapter__p">然后我们启动 web-UI，打开扩展，并在这里输入该网址：<a class="inline-link" href="https://jihulab.com/hanamizuki/sd-webui-controlnet" target="_blank" rel="noopener">https://jihulab.com/hanamizuki/sd-webui-controlnet</a>，然后点击安装，等待一会（安装没反应或者报错的注意网络问题）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/07.jpg" alt="扩展页输入 ControlNet 安装网址" loading="lazy">
+              <figcaption>FIG 07 · 输入插件安装网址</figcaption>
+            </figure>
+            <p class="chapter__p">等待一会，在这边底部就会有一个信息提示，实际上就是告诉你安装的地址（这里作者已提前安装，所以显示的可能不一样）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/08.jpg" alt="安装完成提示信息" loading="lazy">
+              <figcaption>FIG 08 · 安装完成提示</figcaption>
+            </figure>
+            <p class="chapter__p">然后回到「已安装」这里，可以看到下面就出现了扩散控制网络（ControlNet 插件），点击「应用并重启用户界面」。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/09.jpg" alt="已安装列表与应用并重启 UI" loading="lazy">
+              <figcaption>FIG 09 · 应用并重启 UI</figcaption>
+            </figure>
+            <p class="chapter__p">回到「文生图」这里，就看到 ControlNet 已经成功安装了。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/10.jpg" alt="文生图页出现 ControlNet 面板" loading="lazy">
+              <figcaption>FIG 10 · ControlNet 安装成功</figcaption>
+            </figure>
+          </section>
+
+          <!-- 03 模型安装 -->
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / ControlNet 模型安装</h2>
+            <p class="chapter__p">插件安装完成之后，还没完，我们需要安装模型。跟着我做，首先去这个链接下载：<a class="inline-link" href="https://huggingface.co/lllyasviel/ControlNet/tree/main/models" target="_blank" rel="noopener">huggingface.co/lllyasviel/ControlNet/tree/main/models</a></p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/11.jpg" alt="HuggingFace ControlNet 模型下载页" loading="lazy">
+              <figcaption>FIG 11 · 模型下载页</figcaption>
+            </figure>
+            <p class="chapter__p">把下载的模型全部选中复制（Ctrl+C）一下，我们需要移动到对应文件夹中。</p>
+            <p class="chapter__p">看我的文件路径，别搞错了，把文件复制到这里来（一定不要复制到 Stable Diffusion 模型中去了）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/12.jpg" alt="模型文件应放入的文件夹路径" loading="lazy">
+              <figcaption>FIG 12 · 模型放置路径</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/13.jpg" alt="复制模型到对应文件夹" loading="lazy">
+              <figcaption>FIG 13 · 复制模型到文件夹</figcaption>
+            </figure>
+            <p class="chapter__p">重启 UI，耐心等待一下……</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/14.jpg" alt="重启 UI 进度" loading="lazy">
+              <figcaption>FIG 14 · 重启 UI</figcaption>
+            </figure>
+            <p class="chapter__p">look，这就是成功安装的样子，很可爱呢~如果你没有，那说明模型没安装到位置，仔细检查下吧。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/15.jpg" alt="ControlNet 模型安装成功界面" loading="lazy">
+              <figcaption>FIG 15 · 安装成功</figcaption>
+            </figure>
+          </section>
+
+          <!-- 04 模型说明及案例演示 -->
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 模型说明及案例演示</h2>
+            <p class="chapter__p">介绍几个常用的 ControlNet 模型教程，注意看哦，跟着我一步步操作就没什么问题的，加油！</p>
+
+            <h3 class="chapter__subtitle">1. Canny 边缘检测（Canny edge detection）</h3>
+            <p class="chapter__p">Canny 用于识别输入图像的边缘信息。从上传的图片中生成线稿，然后根据关键词来生成与上传图片同样构图的画面。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/16.jpg" alt="Canny 边缘检测效果示例" loading="lazy">
+              <figcaption>FIG 16 · Canny 边缘检测示例</figcaption>
+            </figure>
+            <p class="chapter__p">来跟着我的操作来一遍。首先我们把模型和 lora 选择好，因为我这里上传的是一个真实的模特，所以想最大程度还原，模型一定要对。这里我用到的是这两个模型。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/17.jpg" alt="选择底模与 lora" loading="lazy">
+              <figcaption>FIG 17 · 选择模型与 lora</figcaption>
+            </figure>
+            <p class="chapter__p">然后输入关键词：</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/18.jpg" alt="Canny 案例正向提示词" loading="lazy">
+              <figcaption>FIG 18 · 正向提示词</figcaption>
+            </figure>
+            <p class="chapter__p"><span class="mono">1girl, solo, smile, realistic, grin, looking at viewer, brown eyes, brown hair, ponytail, upper body, simple background, small breasts, breasts, blue background, teeth, lips, bare shoulders, long hair, black hair</span></p>
+            <p class="chapter__p">（女孩，独奏，微笑，现实，咧嘴笑，看着观众，棕色的眼睛，棕色的头发，马尾辫，上身，简单的背景，蓝色的背景，牙齿，嘴唇，裸露的肩膀，长发，黑发）</p>
+            <p class="chapter__p">打开 ControlNet，选择 Canny 边缘检测，模型选择对应的 canny 模型。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/19.jpg" alt="选择 Canny 预处理器与模型" loading="lazy">
+              <figcaption>FIG 19 · 选择 Canny 模型</figcaption>
+            </figure>
+            <p class="chapter__p">上传图片，并勾选启用。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/20.jpg" alt="上传图片并启用 ControlNet" loading="lazy">
+              <figcaption>FIG 20 · 上传图片并启用</figcaption>
+            </figure>
+            <p class="chapter__p">点击下方的「预览预处理结果」，这一步是生成线稿，然后就会出现上面那张线稿图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/21.jpg" alt="预览 Canny 线稿处理结果" loading="lazy">
+              <figcaption>FIG 21 · 预览线稿</figcaption>
+            </figure>
+            <p class="chapter__p">最后我们勾选下「DPM++ SDE Karras」，开始生图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/22.jpg" alt="选择 DPM++ SDE Karras 采样器" loading="lazy">
+              <figcaption>FIG 22 · 选择采样器</figcaption>
+            </figure>
+            <p class="chapter__p">来看下原图和生成图片的对比，姿态构图基本一致。如果你想换头发颜色、面部细节、服装等等，就可以通过关键词来控制。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/23.jpg" alt="原图与生成图对比" loading="lazy">
+              <figcaption>FIG 23 · 原图与生成图对比</figcaption>
+            </figure>
+            <p class="chapter__p"><span class="chapter__list-k">言川小知识：</span>可以看到上面生成的模特脸部头发丝有点乱，可以调整预处理器分辨率（下面两个同样也是调整线稿的精细程度），越高生成的效果与原图越相像，同样也会越吃显存，小心使用。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/24.jpg" alt="预处理器分辨率调整说明" loading="lazy">
+              <figcaption>FIG 24 · 调整预处理器分辨率</figcaption>
+            </figure>
+            <p class="chapter__p">下面这 2 个（Lineart 线稿、Scribble 涂鸦）也是同样的做法，它们的主要区别是边缘检测算法不同，具体选择哪个各位去尝试一下，玩法基本一致，这里就不做演示了。注意右侧的模型要选择对应的预处理器。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/25.jpg" alt="其他边缘检测模型说明" loading="lazy">
+              <figcaption>FIG 25 · 其他边缘检测模型</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">2. M-LSD（建筑物绘制）</h3>
+            <p class="chapter__p">通过分析图片中的线条结构和几何形状，可以构建建筑物的外框，适合建筑、室内设计的朋友使用。</p>
+            <p class="chapter__p">①切换预处理器和相应模型。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/26.jpg" alt="M-LSD 预处理器与模型选择" loading="lazy">
+              <figcaption>FIG 26 · 切换预处理器与模型</figcaption>
+            </figure>
+            <p class="chapter__p">②上传一张室内设计的图片，然后点击「预处理结果」（第一次用这个，控制台会更新一段时间）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/27.jpg" alt="上传室内设计图并预处理" loading="lazy">
+              <figcaption>FIG 27 · 上传图片并预处理</figcaption>
+            </figure>
+            <p class="chapter__p">③输入关键词：</p>
+            <p class="chapter__p"><span class="mono">pearl white walls, windsor gray floors, bedroom, Natural lighting, earthly tones, simple and clean, trending on interior design, digital artwork by Audrey kawasaki, Smooth, Detailed, Artstation, Neutral colors, elegant</span></p>
+            <p class="chapter__p">（珍珠白的墙壁，温莎灰色的地板，卧室，自然光，朴实的色调，简单干净，室内设计的趋势，光滑，细节，中性色，优雅）</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/28.jpg" alt="M-LSD 案例提示词输入" loading="lazy">
+              <figcaption>FIG 28 · 输入关键词</figcaption>
+            </figure>
+            <p class="chapter__p">可以看到，图片生成的效果还是不错的，跟原图的构图基本一致，当然还有更多的细节需要调整，大家可以调整参数即可。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/29.jpg" alt="M-LSD 生成结果" loading="lazy">
+              <figcaption>FIG 29 · 生成结果</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">3. 法线贴图（Normal map）</h3>
+            <p class="chapter__p">从原图中提取 3D 物体的法线向量，绘制的新图与原图的光影效果完全相同。</p>
+            <p class="chapter__p">①切换预处理器和模型。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/30.jpg" alt="法线贴图预处理器与模型选择" loading="lazy">
+              <figcaption>FIG 30 · 切换预处理器与模型</figcaption>
+            </figure>
+            <p class="chapter__p">②上传一张图片，然后点击「预览预处理结果」，然后就会给你生成一张法线图（懂 3D 的小伙伴应该都知道这个）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/31.jpg" alt="生成法线图" loading="lazy">
+              <figcaption>FIG 31 · 生成法线图</figcaption>
+            </figure>
+            <p class="chapter__p">③继续输入关键词，等待生图……</p>
+            <p class="chapter__p"><span class="mono">Mercedes-Benz AMG GT, staring out of the window with regal air, Moody lighting, High detail, realistic fur texture, Digital painting, trending on artstation</span></p>
+            <p class="chapter__p">（梅赛德斯-奔驰 AMG GT，凝视窗外，高贵气质，戏剧性光照，高细节，逼真的皮毛纹理，数字绘画，艺术站趋势）</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/32.jpg" alt="法线贴图案例提示词" loading="lazy">
+              <figcaption>FIG 32 · 输入关键词</figcaption>
+            </figure>
+            <p class="chapter__p">怎么说呢，就是牛！背景细节等都可以通过关键词来控制，其他调整参数与上面一样。</p>
+            <p class="chapter__p"><span class="chapter__list-k">言川小知识：</span>这个模型主要是通过 RGB 颜色通道来标记表示凹凸，生成的图片立体感很强。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/33.jpg" alt="法线贴图生成结果对比" loading="lazy">
+              <figcaption>FIG 33 · 生成结果对比</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">4. OpenPose 姿态检测</h3>
+            <p class="chapter__p">通过姿势识别实现对人体动作的精准控制，不仅可以生成单人的姿势，还可以生成多人的姿势。此外，由于 AI 生成的手部有问题，OpenPose 还有一个手部检测模型，大大改善了奇奇怪怪的手。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/34.jpg" alt="OpenPose 姿态检测示例" loading="lazy">
+              <figcaption>FIG 34 · OpenPose 姿态示例</figcaption>
+            </figure>
+            <p class="chapter__p">①切换预处理器和模型。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/35.jpg" alt="OpenPose 预处理器与模型选择" loading="lazy">
+              <figcaption>FIG 35 · 切换预处理器与模型</figcaption>
+            </figure>
+            <p class="chapter__p">②上传一张图片，然后点击「预览预处理结果」。注意，第一次选中这个模型开始预处理的时候，会更新一段时间，可以在控制台查看更新进度，更新完成之后再次点击「预处理」就可以看到 AI 识别的图了。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/36.jpg" alt="OpenPose 预处理进度" loading="lazy">
+              <figcaption>FIG 36 · 预处理进度</figcaption>
+            </figure>
+            <p class="chapter__p">看看预处理结果：</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/37.jpg" alt="OpenPose 姿态识别结果" loading="lazy">
+              <figcaption>FIG 37 · 姿态识别结果</figcaption>
+            </figure>
+            <p class="chapter__p">③输入关键词，等待生图……</p>
+            <p class="chapter__p"><span class="mono">1girl, solo, dress, braid, hairband, earrings, smile, brown eyes, white dress, realistic, jewelry, long hair, black hair, looking at viewer, bare shoulders, lips, blue hairband, single braid, brown hair, simple background</span></p>
+            <p class="chapter__p">（女孩，独奏，连衣裙，辫子，发带，耳环，微笑，棕色眼睛，白色连衣裙，现实主义，珠宝，长发，黑发，看着观众，裸露的肩膀，嘴唇，蓝色发带，单发带，棕色头发，简单的背景）</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/38.jpg" alt="OpenPose 案例提示词" loading="lazy">
+              <figcaption>FIG 38 · 输入关键词</figcaption>
+            </figure>
+            <p class="chapter__p">这手奇奇怪怪的，没事，可以试试 OpenPose 手部检测模型，操作是一样的，自己去尝试哈。细节调起来操作很多，一点点尝试，肯定能成功的。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/39.jpg" alt="OpenPose 生成结果与手部检测提示" loading="lazy">
+              <figcaption>FIG 39 · 生成结果与手部检测</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">5. Scribble（涂鸦）</h3>
+            <p class="chapter__p">使用 Scribble 模型，可以根据草图（涂鸦）绘制出精美的图片，对于那些没有接受过美术训练或缺乏绘画天赋的人来说，这是非常棒的。</p>
+            <p class="chapter__p">①切换预处理器和模型（第一次用这个，控制台会更新一段时间）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/40.jpg" alt="Scribble 预处理器与模型选择" loading="lazy">
+              <figcaption>FIG 40 · 切换预处理器与模型</figcaption>
+            </figure>
+            <p class="chapter__p">②点击「创建空白画布」。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/41.jpg" alt="创建空白画布" loading="lazy">
+              <figcaption>FIG 41 · 创建空白画布</figcaption>
+            </figure>
+            <p class="chapter__p">③然后在这里画线稿，这里我画一盏煤油灯，我是用鼠标绘制的，画的不好，做个演示。有手绘板的同学可以用手绘板绘制一下。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/42.jpg" alt="在画布上绘制煤油灯线稿" loading="lazy">
+              <figcaption>FIG 42 · 绘制线稿</figcaption>
+            </figure>
+            <p class="chapter__p">④输入关键词：</p>
+            <p class="chapter__p"><span class="mono">old electronic kerosene lamp in anthracite blue metal, warm orange metal reflections, Intricate, Highly detailed, Warm lighting, Sharp focus, Digital painting, Artstation, Concept art, trending, inspired by Zdenek Burian and Frederick Catherwood</span></p>
+            <p class="chapter__p">（旧电子煤油灯，无烟煤蓝色金属，温暖的橙色金属反射，错综复杂，高度详细，温暖的照明，锐利对焦，数字绘画，艺术站，概念艺术，灵感来自 Zdenek Burian 和 Frederick Catherwood）</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/43.jpg" alt="Scribble 案例生成结果" loading="lazy">
+              <figcaption>FIG 43 · 生成结果</figcaption>
+            </figure>
+            <p class="chapter__p">我画的不标准哈，做个演示，这个模型是根据你绘画的线稿精准控制物体的构图、构造，细节根据关键词来控制。</p>
+            <p class="chapter__p">这里可能就有小伙伴疑问了，在 SD 里面直接绘制不是很方便，能不能通过其他软件绘制之后上传线稿生图呢？当然可以，看下面：</p>
+            <ul class="chapter__list">
+              <li>1）上传线稿图，点击「预览预处理器结果」。</li>
+              <li>2）输入上面的关键词，然后生成图片。</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/44.jpg" alt="上传外部绘制的线稿图" loading="lazy">
+              <figcaption>FIG 44 · 上传外部线稿</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/45.jpg" alt="外部线稿生成结果" loading="lazy">
+              <figcaption>FIG 45 · 外部线稿生成结果</figcaption>
+            </figure>
+            <p class="chapter__p">完事，同样细节需要你们自己去调整。</p>
+
+            <h3 class="chapter__subtitle">6. fake-scribble（伪涂鸦）</h3>
+            <p class="chapter__p">这个是不需要我们绘画的，上传一张图片，它会帮我们生成涂鸦效果。</p>
+            <p class="chapter__p">①切换预处理器，模型不用切换。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/46.jpg" alt="fake-scribble 预处理器选择" loading="lazy">
+              <figcaption>FIG 46 · 切换预处理器</figcaption>
+            </figure>
+            <p class="chapter__p">②上传图片，然后点击「预览预处理器结果」（第一次用这个，控制台会更新一段时间）。</p>
+            <p class="chapter__p">说实话，画的还不如我呢……</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/47.jpg" alt="生成的伪涂鸦效果" loading="lazy">
+              <figcaption>FIG 47 · 伪涂鸦效果</figcaption>
+            </figure>
+            <p class="chapter__p">③输入关键词：</p>
+            <p class="chapter__p"><span class="mono">Espresso, set in a cozy office space with warm lighting, surrounded by office plants, books, and a cup of coffee on the desk, Detailed, Intricate, Smooth, Trending on Artstation, by artists such as loish and rossdraws and sam yang</span></p>
+            <p class="chapter__p">（意式浓缩咖啡，舒适的办公空间，温暖的照明，周围有办公植物、书籍和桌上一杯咖啡，详细，复杂，流畅，艺术站趋势）</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/48.jpg" alt="fake-scribble 案例生成结果" loading="lazy">
+              <figcaption>FIG 48 · 生成结果</figcaption>
+            </figure>
+            <p class="chapter__p">效果嘎嘎棒！</p>
+
+            <h3 class="chapter__subtitle">7. Semantic Segmentation（语义分割绘制）</h3>
+            <p class="chapter__p">Semantic Segmentation 语义分割是一种深度学习算法，重点关注「语义」一词，这种算法将一个标签或类别与图像联系起来，被用来识别形成不同类别的像素集合。具体还是看我的操作：</p>
+            <p class="chapter__p">①切换预处理器和模型。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/49.jpg" alt="语义分割预处理器与模型选择" loading="lazy">
+              <figcaption>FIG 49 · 切换预处理器与模型</figcaption>
+            </figure>
+            <p class="chapter__p">②上传图片，然后点击「预览预处理器结果」。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/50.jpg" alt="语义分割彩色预处理图" loading="lazy">
+              <figcaption>FIG 50 · 语义分割图</figcaption>
+            </figure>
+            <p class="chapter__p">可以看到，预处理阶段生成了一张五颜六色的图片，这就是语义分割图，图中的每一种颜色都代表了一类物品，比如紫色（#cc05ff）代表床（bed），橙黄色（#ffc207）代表垫子（cushion），金黄色（#e0ff08）代表台灯（lamp）。这是一份色值表格，大家自取！</p>
+            <p class="chapter__p">③这里我就不输入关键词了，让 SD 自由发挥。</p>
+            <p class="chapter__p"><span class="chapter__list-k">言川小知识：</span>可以在 PS 上绘制一个色块的物体（比如人，放在这个桥上，对应官方的色值），然后导入到语义分割这里来，输入相应的关键词，就可以精准控制图像的效果了。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/51.jpg" alt="语义分割生成结果" loading="lazy">
+              <figcaption>FIG 51 · 生成结果</figcaption>
+            </figure>
+            <p class="chapter__p">注意看注意看：这里讲下这个小功能，前面两个是打开摄像头的功能，我没试过，你们想玩可以试一下。主要讲一下后面的那个小箭头。</p>
+            <p class="chapter__p">这个箭头的功能是把你上传图片的分辨率，自动填充上去。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-controlnet/52.jpg" alt="分辨率自动填充小功能示意" loading="lazy">
+              <figcaption>FIG 52 · 分辨率自动填充</figcaption>
+            </figure>
+          </section>
+
+          <!-- 05 写在最后 -->
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 写在最后</h2>
+            <p class="chapter__p">以上就是这篇 ControlNet 插件的基础教程啦，当中还有很多高级的玩法，我会在后续一步步分享给大家。</p>
+            <p class="chapter__p">如果觉得对你有帮助，3 连（点赞、收藏、分享）一下吧，大家的支持才是我的动力，祝大家生活愉快。（本文部分图片素材来自网上）</p>
+          </section>
+
+          <div class="quote-card">
+            <span class="quote-card__t">「 ControlNet 让 AI 出图从抽卡变成精准控制：线稿、姿态、法线、语义分割，给什么就照着什么画。 」</span>
+            <span class="quote-card__by">— 原文要点整理</span>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">Stable Diffusion</span>
+            <span class="chip chip--orange">ControlNet</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch0">00&nbsp;&nbsp;前言</span>
+            <span class="toc__link" data-target="ch1">01&nbsp;&nbsp;什么是 ControlNet</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;插件安装</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;模型安装</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;模型说明与案例</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;写在最后</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">原文 2023.05.06</span>
+          <span class="toc__meta-v">阅读时长 20 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

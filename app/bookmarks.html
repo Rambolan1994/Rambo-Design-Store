@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网站收藏 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="bookmarks" data-page="bookmarks">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <!-- 页面标题区 -->
+      <section class="page-head">
+        <div class="page-head__text">
+          <span class="kicker">04 / BOOKMARKS</span>
+          <h1 class="h-page-title">网站收藏</h1>
+          <p class="page-head__desc">日常高频使用的设计、开发与效率工具站点，按分类整理，随用随取。</p>
+        </div>
+        <div class="stat-group">
+          <div class="stat"><span class="stat__num" id="bmSiteCount">62</span><span class="stat__label">收藏站点</span></div>
+          <div class="stat"><span class="stat__num" id="bmCatCount">19</span><span class="stat__label">网站分类</span></div>
+          <div class="stat"><span class="stat__num">2026</span><span class="stat__label">最近更新</span></div>
+        </div>
+      </section>
+
+      <!-- 分类筛选 -->
+      <div class="filter-row" role="group" aria-label="网站分类筛选">
+        <button class="filter-pill is-active" type="button" data-filter="all">全部收藏</button>
+        <button class="filter-pill" type="button" data-filter="设计灵感">设计灵感</button>
+        <button class="filter-pill" type="button" data-filter="设计软件">设计软件</button>
+        <button class="filter-pill" type="button" data-filter="图标">图标</button>
+        <button class="filter-pill" type="button" data-filter="开发工具">开发工具</button>
+        <button class="filter-pill" type="button" data-filter="实用工具">实用工具</button>
+        <button class="filter-pill" type="button" data-filter="地图资源">地图资源</button>
+        <button class="filter-pill" type="button" data-filter="图表资源">图表资源</button>
+        <button class="filter-pill" type="button" data-filter="图片处理">图片处理</button>
+        <button class="filter-pill" type="button" data-filter="设计导航">设计导航</button>
+        <button class="filter-pill" type="button" data-filter="样机包装">样机包装</button>
+        <button class="filter-pill" type="button" data-filter="插画">插画</button>
+        <button class="filter-pill" type="button" data-filter="二维码">二维码</button>
+        <button class="filter-pill" type="button" data-filter="AI 工具">AI 工具</button>
+        <button class="filter-pill" type="button" data-filter="AI 提示词">AI 提示词</button>
+        <button class="filter-pill" type="button" data-filter="3D">3D</button>
+        <button class="filter-pill" type="button" data-filter="动效">动效</button>
+        <button class="filter-pill" type="button" data-filter="设计素材">设计素材</button>
+        <button class="filter-pill" type="button" data-filter="设计规范">设计规范</button>
+        <button class="filter-pill" type="button" data-filter="流体渐变SVG背景">流体渐变SVG背景</button>
+        <button class="filter-pill" type="button" data-filter="其他">其他</button>
+        <button class="filter-pill" type="button" data-filter="个人网站">个人网站</button>
+      </div>
+
+      <!-- 收藏网站网格 -->
+      <section class="site-grid" aria-label="收藏网站">
+        <a class="site-card" href="https://dribbble.com" target="_blank" rel="noopener" data-cat="设计灵感">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/dribbble.png" alt="Dribbble"></span>
+            <span class="site-card__id"><span class="site-card__name">Dribbble</span><span class="site-card__url">dribbble.com</span></span>
+            <span class="site-card__cat">设计灵感</span>
+          </div>
+          <span class="site-card__desc">设计师作品展示平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">作品社区</span><span class="site-card__tag">灵感</span></div>
+        </a>
+        <a class="site-card" href="https://www.behance.net" target="_blank" rel="noopener" data-cat="设计灵感">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/behance.png" alt="Behance"></span>
+            <span class="site-card__id"><span class="site-card__name">Behance</span><span class="site-card__url">behance.net</span></span>
+            <span class="site-card__cat">设计灵感</span>
+          </div>
+          <span class="site-card__desc">创意作品展示平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">作品社区</span><span class="site-card__tag">灵感</span></div>
+        </a>
+        <a class="site-card" href="https://www.zcool.com.cn" target="_blank" rel="noopener" data-cat="设计灵感">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/zcool.png" alt="站酷"></span>
+            <span class="site-card__id"><span class="site-card__name">站酷</span><span class="site-card__url">zcool.com.cn</span></span>
+            <span class="site-card__cat">设计灵感</span>
+          </div>
+          <span class="site-card__desc">国内设计师互动平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">作品社区</span><span class="site-card__tag">灵感</span></div>
+        </a>
+        <a class="site-card" href="https://www.ui.cn" target="_blank" rel="noopener" data-cat="设计灵感">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/uicn.png" alt="UI 中国"></span>
+            <span class="site-card__id"><span class="site-card__name">UI 中国</span><span class="site-card__url">ui.cn</span></span>
+            <span class="site-card__cat">设计灵感</span>
+          </div>
+          <span class="site-card__desc">中文 UI 设计社区</span>
+          <div class="site-card__tags"><span class="site-card__tag">作品社区</span><span class="site-card__tag">灵感</span></div>
+        </a>
+        <a class="site-card" href="https://www.uisdc.com" target="_blank" rel="noopener" data-cat="设计灵感">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/uisdc.png" alt="优设"></span>
+            <span class="site-card__id"><span class="site-card__name">优设</span><span class="site-card__url">uisdc.com</span></span>
+            <span class="site-card__cat">设计灵感</span>
+          </div>
+          <span class="site-card__desc">设计资讯与教程平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">作品社区</span><span class="site-card__tag">灵感</span></div>
+        </a>
+        <a class="site-card" href="https://uinotes.com/" target="_blank" rel="noopener" data-cat="设计灵感">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/uinotes.png" alt="UINotes"></span>
+            <span class="site-card__id"><span class="site-card__name">UINotes</span><span class="site-card__url">uinotes.com</span></span>
+            <span class="site-card__cat">设计灵感</span>
+          </div>
+          <span class="site-card__desc">UI 设计灵感笔记</span>
+          <div class="site-card__tags"><span class="site-card__tag">作品社区</span><span class="site-card__tag">灵感</span></div>
+        </a>
+        <a class="site-card" href="https://www.figma.com" target="_blank" rel="noopener" data-cat="设计软件">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/figma.png" alt="Figma"></span>
+            <span class="site-card__id"><span class="site-card__name">Figma</span><span class="site-card__url">figma.com</span></span>
+            <span class="site-card__cat">设计软件</span>
+          </div>
+          <span class="site-card__desc">协作式 UI 设计工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计工具</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://mastergo.com/" target="_blank" rel="noopener" data-cat="设计软件">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/mastergo.png" alt="MasterGo"></span>
+            <span class="site-card__id"><span class="site-card__name">MasterGo</span><span class="site-card__url">mastergo.com</span></span>
+            <span class="site-card__cat">设计软件</span>
+          </div>
+          <span class="site-card__desc">企业级 AI 设计平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计工具</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://js.design/" target="_blank" rel="noopener" data-cat="设计软件">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/jsdesign.png" alt="即时设计"></span>
+            <span class="site-card__id"><span class="site-card__name">即时设计</span><span class="site-card__url">js.design</span></span>
+            <span class="site-card__cat">设计软件</span>
+          </div>
+          <span class="site-card__desc">国产云端 UI 设计工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计工具</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://ardot.tencent.com/" target="_blank" rel="noopener" data-cat="设计软件">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/ardot.png" alt="Ardot"></span>
+            <span class="site-card__id"><span class="site-card__name">Ardot</span><span class="site-card__url">ardot.tencent.com</span></span>
+            <span class="site-card__cat">设计软件</span>
+          </div>
+          <span class="site-card__desc">腾讯 AI 设计智能体</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计工具</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://pixso.cn/" target="_blank" rel="noopener" data-cat="设计软件">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/pixso.png" alt="Pixso"></span>
+            <span class="site-card__id"><span class="site-card__name">Pixso</span><span class="site-card__url">pixso.cn</span></span>
+            <span class="site-card__cat">设计软件</span>
+          </div>
+          <span class="site-card__desc">产品设计协作一体化</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计工具</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://icraft.design/" target="_blank" rel="noopener" data-cat="设计软件">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/icraft.png" alt="iCraft"></span>
+            <span class="site-card__id"><span class="site-card__name">iCraft</span><span class="site-card__url">icraft.design</span></span>
+            <span class="site-card__cat">设计软件</span>
+          </div>
+          <span class="site-card__desc">在线 3D 场景与架构图设计工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">3D 设计</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://www.iconfont.cn" target="_blank" rel="noopener" data-cat="图标">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/iconfont.png" alt="iconfont"></span>
+            <span class="site-card__id"><span class="site-card__name">iconfont</span><span class="site-card__url">iconfont.cn</span></span>
+            <span class="site-card__cat">图标</span>
+          </div>
+          <span class="site-card__desc">阿里巴巴矢量图标库</span>
+          <div class="site-card__tags"><span class="site-card__tag">矢量图标</span><span class="site-card__tag">免费</span></div>
+        </a>
+        <a class="site-card" href="https://iconsax.io" target="_blank" rel="noopener" data-cat="图标">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/iconsax.png" alt="Iconsax"></span>
+            <span class="site-card__id"><span class="site-card__name">Iconsax</span><span class="site-card__url">iconsax.io</span></span>
+            <span class="site-card__cat">图标</span>
+          </div>
+          <span class="site-card__desc">高质量矢量图标库</span>
+          <div class="site-card__tags"><span class="site-card__tag">矢量图标</span><span class="site-card__tag">免费</span></div>
+        </a>
+        <a class="site-card" href="https://github.com" target="_blank" rel="noopener" data-cat="开发工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/github.png" alt="GitHub"></span>
+            <span class="site-card__id"><span class="site-card__name">GitHub</span><span class="site-card__url">github.com</span></span>
+            <span class="site-card__cat">开发工具</span>
+          </div>
+          <span class="site-card__desc">全球最大代码托管平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">开发资源</span><span class="site-card__tag">代码</span></div>
+        </a>
+        <a class="site-card" href="https://stackoverflow.com" target="_blank" rel="noopener" data-cat="开发工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/stackoverflow.png" alt="Stack Overflow"></span>
+            <span class="site-card__id"><span class="site-card__name">Stack Overflow</span><span class="site-card__url">stackoverflow.com</span></span>
+            <span class="site-card__cat">开发工具</span>
+          </div>
+          <span class="site-card__desc">程序员问答社区</span>
+          <div class="site-card__tags"><span class="site-card__tag">开发资源</span><span class="site-card__tag">代码</span></div>
+        </a>
+        <a class="site-card" href="https://codepen.io" target="_blank" rel="noopener" data-cat="开发工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/codepen.png" alt="CodePen"></span>
+            <span class="site-card__id"><span class="site-card__name">CodePen</span><span class="site-card__url">codepen.io</span></span>
+            <span class="site-card__cat">开发工具</span>
+          </div>
+          <span class="site-card__desc">前端代码演示平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">开发资源</span><span class="site-card__tag">代码</span></div>
+        </a>
+        <a class="site-card" href="https://developer.mozilla.org" target="_blank" rel="noopener" data-cat="开发工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/mdn.png" alt="MDN Web Docs"></span>
+            <span class="site-card__id"><span class="site-card__name">MDN Web Docs</span><span class="site-card__url">developer.mozilla.org</span></span>
+            <span class="site-card__cat">开发工具</span>
+          </div>
+          <span class="site-card__desc">Web 开发文档</span>
+          <div class="site-card__tags"><span class="site-card__tag">开发资源</span><span class="site-card__tag">代码</span></div>
+        </a>
+        <a class="site-card" href="https://fg.vkr.me/mac" target="_blank" rel="noopener" data-cat="实用工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/fuguang.png" alt="浮光"></span>
+            <span class="site-card__id"><span class="site-card__name">浮光</span><span class="site-card__url">fg.vkr.me</span></span>
+            <span class="site-card__cat">实用工具</span>
+          </div>
+          <span class="site-card__desc">Mac 实用工具合集</span>
+          <div class="site-card__tags"><span class="site-card__tag">在线工具</span><span class="site-card__tag">效率</span></div>
+        </a>
+        <a class="site-card" href="https://tool.browser.qq.com/?" target="_blank" rel="noopener" data-cat="实用工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/qq-browser-tool.png" alt="QQ浏览器工具箱"></span>
+            <span class="site-card__id"><span class="site-card__name">QQ浏览器工具箱</span><span class="site-card__url">tool.browser.qq.com</span></span>
+            <span class="site-card__cat">实用工具</span>
+          </div>
+          <span class="site-card__desc">在线实用工具合集</span>
+          <div class="site-card__tags"><span class="site-card__tag">在线工具</span><span class="site-card__tag">效率</span></div>
+        </a>
+        <a class="site-card" href="https://datav.aliyun.com/portal/school/atlas/area_selector" target="_blank" rel="noopener" data-cat="地图资源">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/aliyun-datav.png" alt="阿里云数据可视化"></span>
+            <span class="site-card__id"><span class="site-card__name">阿里云数据可视化</span><span class="site-card__url">datav.aliyun.com</span></span>
+            <span class="site-card__cat">地图资源</span>
+          </div>
+          <span class="site-card__desc">省市行政区 SVG 下载</span>
+          <div class="site-card__tags"><span class="site-card__tag">地图数据</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://xiangyuecn.gitee.io/areacity-jsspider-statsgov/assets/geo-echarts.html" target="_blank" rel="noopener" data-cat="地图资源">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/echarts-map.png" alt="ECharts Map"></span>
+            <span class="site-card__id"><span class="site-card__name">ECharts Map</span><span class="site-card__url">xiangyuecn.gitee.io</span></span>
+            <span class="site-card__cat">地图资源</span>
+          </div>
+          <span class="site-card__desc">县乡镇街道级 SVG</span>
+          <div class="site-card__tags"><span class="site-card__tag">地图数据</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://www.poi86.com/poi/amap.html" target="_blank" rel="noopener" data-cat="地图资源">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/poi86.png" alt="poi86"></span>
+            <span class="site-card__id"><span class="site-card__name">poi86</span><span class="site-card__url">poi86.com</span></span>
+            <span class="site-card__cat">地图资源</span>
+          </div>
+          <span class="site-card__desc">细颗粒度区县地图</span>
+          <div class="site-card__tags"><span class="site-card__tag">地图数据</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://www.mapbox.com/" target="_blank" rel="noopener" data-cat="地图资源">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/mapbox.png" alt="Mapbox"></span>
+            <span class="site-card__id"><span class="site-card__name">Mapbox</span><span class="site-card__url">mapbox.com</span></span>
+            <span class="site-card__cat">地图资源</span>
+          </div>
+          <span class="site-card__desc">自定义地图平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">地图数据</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://www.nbcharts.com" target="_blank" rel="noopener" data-cat="地图资源">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/nbcharts.png" alt="NB Charts"></span>
+            <span class="site-card__id"><span class="site-card__name">NB Charts</span><span class="site-card__url">nbcharts.com</span></span>
+            <span class="site-card__cat">地图资源</span>
+          </div>
+          <span class="site-card__desc">Figma/PS 图表生成插件，支持地图</span>
+          <div class="site-card__tags"><span class="site-card__tag">图表插件</span><span class="site-card__tag">Figma</span></div>
+        </a>
+        <a class="site-card" href="https://echarts.apache.org/examples/zh/index.html#chart-type-line" target="_blank" rel="noopener" data-cat="图表资源">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/echart.png" alt="E-CHART"></span>
+            <span class="site-card__id"><span class="site-card__name">E-CHART</span><span class="site-card__url">echarts.apache.org</span></span>
+            <span class="site-card__cat">图表资源</span>
+          </div>
+          <span class="site-card__desc">各种图表用例</span>
+          <div class="site-card__tags"><span class="site-card__tag">数据可视化</span><span class="site-card__tag">图表</span></div>
+        </a>
+        <a class="site-card" href="https://www.remove.bg/zh" target="_blank" rel="noopener" data-cat="图片处理">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/removebg.png" alt="remove.bg"></span>
+            <span class="site-card__id"><span class="site-card__name">remove.bg</span><span class="site-card__url">remove.bg</span></span>
+            <span class="site-card__cat">图片处理</span>
+          </div>
+          <span class="site-card__desc">背景抠图工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">图片编辑</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://img.logosc.cn/" target="_blank" rel="noopener" data-cat="图片处理">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/online-ps.png" alt="在线 PS 精简版"></span>
+            <span class="site-card__id"><span class="site-card__name">在线 PS 精简版</span><span class="site-card__url">img.logosc.cn</span></span>
+            <span class="site-card__cat">图片处理</span>
+          </div>
+          <span class="site-card__desc">在线图片编辑器</span>
+          <div class="site-card__tags"><span class="site-card__tag">图片编辑</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://snapedit.app/" target="_blank" rel="noopener" data-cat="图片处理">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/snapedit.png" alt="SnapEdit"></span>
+            <span class="site-card__id"><span class="site-card__name">SnapEdit</span><span class="site-card__url">snapedit.app</span></span>
+            <span class="site-card__cat">图片处理</span>
+          </div>
+          <span class="site-card__desc">AI 人工智能照片编辑器</span>
+          <div class="site-card__tags"><span class="site-card__tag">图片编辑</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://newprofilepic.com/zh" target="_blank" rel="noopener" data-cat="图片处理">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/newprofilepic.png" alt="newprofilepic"></span>
+            <span class="site-card__id"><span class="site-card__name">newprofilepic</span><span class="site-card__url">newprofilepic.com</span></span>
+            <span class="site-card__cat">图片处理</span>
+          </div>
+          <span class="site-card__desc">头像制作工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">图片编辑</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://hzl.rzzx.com.cn/" target="_blank" rel="noopener" data-cat="图片处理">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/zjzp.png" alt="证件数码相片检测"></span>
+            <span class="site-card__id"><span class="site-card__name">证件数码相片检测</span><span class="site-card__url">hzl.rzzx.com.cn</span></span>
+            <span class="site-card__cat">图片处理</span>
+          </div>
+          <span class="site-card__desc">证件照质量检测中心</span>
+          <div class="site-card__tags"><span class="site-card__tag">图片编辑</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://tinypng.com/" target="_blank" rel="noopener" data-cat="图片处理">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/tinypng.png" alt="TinyPNG"></span>
+            <span class="site-card__id"><span class="site-card__name">TinyPNG</span><span class="site-card__url">tinypng.com</span></span>
+            <span class="site-card__cat">图片处理</span>
+          </div>
+          <span class="site-card__desc">图片压缩工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">图片编辑</span><span class="site-card__tag">在线</span></div>
+        </a>
+        <a class="site-card" href="https://hao.uisdc.com/" target="_blank" rel="noopener" data-cat="设计导航">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/uisdc-nav.png" alt="优设导航"></span>
+            <span class="site-card__id"><span class="site-card__name">优设导航</span><span class="site-card__url">hao.uisdc.com</span></span>
+            <span class="site-card__cat">设计导航</span>
+          </div>
+          <span class="site-card__desc">设计师网站导航</span>
+          <div class="site-card__tags"><span class="site-card__tag">资源导航</span><span class="site-card__tag">站点</span></div>
+        </a>
+        <a class="site-card" href="https://ai-bot.cn/sites/6622.html" target="_blank" rel="noopener" data-cat="设计导航">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/aibot.png" alt="AI 工具集"></span>
+            <span class="site-card__id"><span class="site-card__name">AI 工具集</span><span class="site-card__url">ai-bot.cn</span></span>
+            <span class="site-card__cat">设计导航</span>
+          </div>
+          <span class="site-card__desc">AI 工具导航</span>
+          <div class="site-card__tags"><span class="site-card__tag">资源导航</span><span class="site-card__tag">站点</span></div>
+        </a>
+        <a class="site-card" href="https://www.huisezhizhao.com/" target="_blank" rel="noopener" data-cat="设计导航">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/huisezhizhao.png" alt="灰大设计导航"></span>
+            <span class="site-card__id"><span class="site-card__name">灰大设计导航</span><span class="site-card__url">huisezhizhao.com</span></span>
+            <span class="site-card__cat">设计导航</span>
+          </div>
+          <span class="site-card__desc">设计资源导航</span>
+          <div class="site-card__tags"><span class="site-card__tag">资源导航</span><span class="site-card__tag">站点</span></div>
+        </a>
+        <a class="site-card" href="https://www.xiaozhongjishu.com/?from=itab" target="_blank" rel="noopener" data-cat="设计导航">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/xiaozhongjishu.png" alt="小众技术"></span>
+            <span class="site-card__id"><span class="site-card__name">小众技术</span><span class="site-card__url">xiaozhongjishu.com</span></span>
+            <span class="site-card__cat">设计导航</span>
+          </div>
+          <span class="site-card__desc">小众技术导航</span>
+          <div class="site-card__tags"><span class="site-card__tag">资源导航</span><span class="site-card__tag">站点</span></div>
+        </a>
+        <a class="site-card" href="http://hao.shejidaren.com/book.html" target="_blank" rel="noopener" data-cat="设计导航">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/shejidaren-book.png" alt="设计书籍"></span>
+            <span class="site-card__id"><span class="site-card__name">设计书籍</span><span class="site-card__url">hao.shejidaren.com</span></span>
+            <span class="site-card__cat">设计导航</span>
+          </div>
+          <span class="site-card__desc">设计书籍导航</span>
+          <div class="site-card__tags"><span class="site-card__tag">资源导航</span><span class="site-card__tag">站点</span></div>
+        </a>
+        <a class="site-card" href="https://www.pacdora.cn/" target="_blank" rel="noopener" data-cat="样机包装">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/pacdora.png" alt="Pacdora"></span>
+            <span class="site-card__id"><span class="site-card__name">Pacdora</span><span class="site-card__url">pacdora.cn</span></span>
+            <span class="site-card__cat">样机包装</span>
+          </div>
+          <span class="site-card__desc">免费样机/模型在线生成器</span>
+          <div class="site-card__tags"><span class="site-card__tag">样机</span><span class="site-card__tag">包装</span></div>
+        </a>
+        <a class="site-card" href="https://www.baoxiaohe.com/" target="_blank" rel="noopener" data-cat="样机包装">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/baoxiaohe.png" alt="包小盒"></span>
+            <span class="site-card__id"><span class="site-card__name">包小盒</span><span class="site-card__url">baoxiaohe.com</span></span>
+            <span class="site-card__cat">样机包装</span>
+          </div>
+          <span class="site-card__desc">在线包装印刷设计工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">样机</span><span class="site-card__tag">包装</span></div>
+        </a>
+        <a class="site-card" href="https://www.mockupworld.co/" target="_blank" rel="noopener" data-cat="样机包装">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/mockupworld.png" alt="Mockupworld"></span>
+            <span class="site-card__id"><span class="site-card__name">Mockupworld</span><span class="site-card__url">mockupworld.co</span></span>
+            <span class="site-card__cat">样机包装</span>
+          </div>
+          <span class="site-card__desc">样机资源网站</span>
+          <div class="site-card__tags"><span class="site-card__tag">样机</span><span class="site-card__tag">包装</span></div>
+        </a>
+        <a class="site-card" href="https://shots.so/" target="_blank" rel="noopener" data-cat="样机包装">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/shots.png" alt="Shots"></span>
+            <span class="site-card__id"><span class="site-card__name">Shots</span><span class="site-card__url">shots.so</span></span>
+            <span class="site-card__cat">样机包装</span>
+          </div>
+          <span class="site-card__desc">样机设计工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">样机</span><span class="site-card__tag">包装</span></div>
+        </a>
+        <a class="site-card" href="https://storytribeapp.com/" target="_blank" rel="noopener" data-cat="插画">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/storytribe.png" alt="Story Tribe"></span>
+            <span class="site-card__id"><span class="site-card__name">Story Tribe</span><span class="site-card__url">storytribeapp.com</span></span>
+            <span class="site-card__cat">插画</span>
+          </div>
+          <span class="site-card__desc">零门槛插画神器</span>
+          <div class="site-card__tags"><span class="site-card__tag">插画</span><span class="site-card__tag">创作</span></div>
+        </a>
+        <a class="site-card" href="https://cli.im/url" target="_blank" rel="noopener" data-cat="二维码">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/cliim.png" alt="草料二维码"></span>
+            <span class="site-card__id"><span class="site-card__name">草料二维码</span><span class="site-card__url">cli.im</span></span>
+            <span class="site-card__cat">二维码</span>
+          </div>
+          <span class="site-card__desc">二维码生成工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">二维码</span><span class="site-card__tag">生成</span></div>
+        </a>
+        <a class="site-card" href="https://www.wwei.cn/?from=bdtp&amp;bd_vid=10981631258720530686" target="_blank" rel="noopener" data-cat="二维码">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/wwei.png" alt="微微二维码"></span>
+            <span class="site-card__id"><span class="site-card__name">微微二维码</span><span class="site-card__url">wwei.cn</span></span>
+            <span class="site-card__cat">二维码</span>
+          </div>
+          <span class="site-card__desc">二维码生成工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">二维码</span><span class="site-card__tag">生成</span></div>
+        </a>
+        <a class="site-card" href="https://chat.openai.com" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/chatgpt.png" alt="ChatGPT"></span>
+            <span class="site-card__id"><span class="site-card__name">ChatGPT</span><span class="site-card__url">chat.openai.com</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">OpenAI 智能对话</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://www.midjourney.com" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/midjourney.png" alt="Midjourney"></span>
+            <span class="site-card__id"><span class="site-card__name">Midjourney</span><span class="site-card__url">midjourney.com</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">AI 图像生成工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://www.notion.so" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/notion.png" alt="Notion"></span>
+            <span class="site-card__id"><span class="site-card__name">Notion</span><span class="site-card__url">notion.so</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">AI 笔记与工作空间</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://www.canva.com" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/canva.png" alt="Canva"></span>
+            <span class="site-card__id"><span class="site-card__name">Canva</span><span class="site-card__url">canva.com</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">在线设计平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://hub.cocoloop.cn/?ref=www.pmkg.net" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/cocoloop.png" alt="Cocoloop"></span>
+            <span class="site-card__id"><span class="site-card__name">Cocoloop</span><span class="site-card__url">hub.cocoloop.cn</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">CocoLoop 是当贝推出的一个 OpenClaw 类 AI Agent 技能商店，提供技能获取、安全审核与集成服务</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://www.xingliu.art/" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/xingliu.png" alt="星流"></span>
+            <span class="site-card__id"><span class="site-card__name">星流</span><span class="site-card__url">xingliu.art</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">AI 图像生成工具</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://www.aixc4d.com/?category=software&amp;subcategory=ai-skills&amp;sort=recommended#asset-catalog" target="_blank" rel="noopener" data-cat="AI 工具">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/aixc4d.png" alt="积木岛 AI"></span>
+            <span class="site-card__id"><span class="site-card__name">积木岛 AI</span><span class="site-card__url">aixc4d.com</span></span>
+            <span class="site-card__cat">AI 工具</span>
+          </div>
+          <span class="site-card__desc">AI 技能资源目录</span>
+          <div class="site-card__tags"><span class="site-card__tag">AI</span><span class="site-card__tag">智能</span></div>
+        </a>
+        <a class="site-card" href="https://midlibrary.io/styles" target="_blank" rel="noopener" data-cat="AI 提示词">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/midlibrary.png" alt="Midlibrary"></span>
+            <span class="site-card__id"><span class="site-card__name">Midlibrary</span><span class="site-card__url">midlibrary.io</span></span>
+            <span class="site-card__cat">AI 提示词</span>
+          </div>
+          <span class="site-card__desc">Midjourney 风格库，可复制提示词与 SREF 码</span>
+          <div class="site-card__tags"><span class="site-card__tag">Midjourney</span><span class="site-card__tag">风格库</span></div>
+        </a>
+        <a class="site-card" href="https://anatomyatelier.vercel.app" target="_blank" rel="noopener" data-cat="3D">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/anatomyatelier.png" alt="Anatomy Atelier"></span>
+            <span class="site-card__id"><span class="site-card__name">Anatomy Atelier</span><span class="site-card__url">anatomyatelier.vercel.app</span></span>
+            <span class="site-card__cat">3D</span>
+          </div>
+          <span class="site-card__desc">3D 人体解剖模型</span>
+          <div class="site-card__tags"><span class="site-card__tag">3D</span><span class="site-card__tag">模型</span></div>
+        </a>
+        <a class="site-card" href="https://reactbits.dev/" target="_blank" rel="noopener" data-cat="动效">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/reactbits.png" alt="ReactBits"></span>
+            <span class="site-card__id"><span class="site-card__name">ReactBits</span><span class="site-card__url">reactbits.dev</span></span>
+            <span class="site-card__cat">动效</span>
+          </div>
+          <span class="site-card__desc">现代 Web 动效与组件</span>
+          <div class="site-card__tags"><span class="site-card__tag">动效</span><span class="site-card__tag">组件</span></div>
+        </a>
+        <a class="site-card" href="https://transitions.dev/" target="_blank" rel="noopener" data-cat="动效">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/transitions.png" alt="Transitions.dev"></span>
+            <span class="site-card__id"><span class="site-card__name">Transitions.dev</span><span class="site-card__url">transitions.dev</span></span>
+            <span class="site-card__cat">动效</span>
+          </div>
+          <span class="site-card__desc">网页过渡动效合集</span>
+          <div class="site-card__tags"><span class="site-card__tag">动效</span><span class="site-card__tag">组件</span></div>
+        </a>
+        <a class="site-card" href="https://ibaotu.com/" target="_blank" rel="noopener" data-cat="设计素材">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/ibaotu.png" alt="包图网"></span>
+            <span class="site-card__id"><span class="site-card__name">包图网</span><span class="site-card__url">ibaotu.com</span></span>
+            <span class="site-card__cat">设计素材</span>
+          </div>
+          <span class="site-card__desc">正版商业设计素材平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计素材</span><span class="site-card__tag">正版</span></div>
+        </a>
+        <a class="site-card" href="https://www.ooopic.com/" target="_blank" rel="noopener" data-cat="设计素材">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/ooopic.png" alt="我图网"></span>
+            <span class="site-card__id"><span class="site-card__name">我图网</span><span class="site-card__url">ooopic.com</span></span>
+            <span class="site-card__cat">设计素材</span>
+          </div>
+          <span class="site-card__desc">设计素材与版权交易平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计素材</span><span class="site-card__tag">正版</span></div>
+        </a>
+        <a class="site-card" href="https://www.huitu.com/" target="_blank" rel="noopener" data-cat="设计素材">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/huitu.png" alt="汇图网"></span>
+            <span class="site-card__id"><span class="site-card__name">汇图网</span><span class="site-card__url">huitu.com</span></span>
+            <span class="site-card__cat">设计素材</span>
+          </div>
+          <span class="site-card__desc">原创设计作品交易平台</span>
+          <div class="site-card__tags"><span class="site-card__tag">设计素材</span><span class="site-card__tag">正版</span></div>
+        </a>
+        <a class="site-card" href="https://4x.ant.design/index-cn" target="_blank" rel="noopener" data-cat="设计规范">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/antdesign.png" alt="Ant Design"></span>
+            <span class="site-card__id"><span class="site-card__name">Ant Design</span><span class="site-card__url">4x.ant.design</span></span>
+            <span class="site-card__cat">设计规范</span>
+          </div>
+          <span class="site-card__desc">蚂蚁集团企业级 UI 设计体系与组件库</span>
+          <div class="site-card__tags"><span class="site-card__tag">组件库</span><span class="site-card__tag">React</span></div>
+        </a>
+        <a class="site-card" href="https://www.arco.design/" target="_blank" rel="noopener" data-cat="设计规范">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/arco.png" alt="Arco Design"></span>
+            <span class="site-card__id"><span class="site-card__name">Arco Design</span><span class="site-card__url">arco.design</span></span>
+            <span class="site-card__cat">设计规范</span>
+          </div>
+          <span class="site-card__desc">字节跳动企业级设计系统与组件库</span>
+          <div class="site-card__tags"><span class="site-card__tag">组件库</span><span class="site-card__tag">设计系统</span></div>
+        </a>
+        <a class="site-card" href="https://tdesign.tencent.com/" target="_blank" rel="noopener" data-cat="设计规范">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/tdesign.png" alt="TDesign"></span>
+            <span class="site-card__id"><span class="site-card__name">TDesign</span><span class="site-card__url">tdesign.tencent.com</span></span>
+            <span class="site-card__cat">设计规范</span>
+          </div>
+          <span class="site-card__desc">腾讯出品的企业级设计体系</span>
+          <div class="site-card__tags"><span class="site-card__tag">组件库</span><span class="site-card__tag">多端</span></div>
+        </a>
+        <a class="site-card" href="https://element.eleme.cn/#/zh-CN" target="_blank" rel="noopener" data-cat="设计规范">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/element.png" alt="Element"></span>
+            <span class="site-card__id"><span class="site-card__name">Element</span><span class="site-card__url">element.eleme.cn</span></span>
+            <span class="site-card__cat">设计规范</span>
+          </div>
+          <span class="site-card__desc">饿了么出品的 Vue 组件库与设计规范</span>
+          <div class="site-card__tags"><span class="site-card__tag">组件库</span><span class="site-card__tag">Vue</span></div>
+        </a>
+        <a class="site-card" href="https://meshgradient.in/" target="_blank" rel="noopener" data-cat="流体渐变SVG背景">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/meshy.png" alt="MESH·Y"></span>
+            <span class="site-card__id"><span class="site-card__name">MESH·Y</span><span class="site-card__url">meshgradient.in</span></span>
+            <span class="site-card__cat">流体渐变SVG背景</span>
+          </div>
+          <span class="site-card__desc">在线流体渐变背景生成器</span>
+          <div class="site-card__tags"><span class="site-card__tag">渐变背景</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://svgwave.in/" target="_blank" rel="noopener" data-cat="流体渐变SVG背景">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/svgwave.png" alt="Svg Wave"></span>
+            <span class="site-card__id"><span class="site-card__name">Svg Wave</span><span class="site-card__url">svgwave.in</span></span>
+            <span class="site-card__cat">流体渐变SVG背景</span>
+          </div>
+          <span class="site-card__desc">SVG 波浪背景生成器</span>
+          <div class="site-card__tags"><span class="site-card__tag">波浪背景</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://creatica.app/" target="_blank" rel="noopener" data-cat="流体渐变SVG背景">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/creatica.png" alt="Creatica"></span>
+            <span class="site-card__id"><span class="site-card__name">Creatica</span><span class="site-card__url">creatica.app</span></span>
+            <span class="site-card__cat">流体渐变SVG背景</span>
+          </div>
+          <span class="site-card__desc">抽象几何图形生成器</span>
+          <div class="site-card__tags"><span class="site-card__tag">几何图形</span><span class="site-card__tag">SVG</span></div>
+        </a>
+        <a class="site-card" href="https://www.32r.com/" target="_blank" rel="noopener" data-cat="其他">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/32r.png" alt="3322软件站"></span>
+            <span class="site-card__id"><span class="site-card__name">3322软件站</span><span class="site-card__url">32r.com</span></span>
+            <span class="site-card__cat">其他</span>
+          </div>
+          <span class="site-card__desc">绿色软件下载站</span>
+          <div class="site-card__tags"><span class="site-card__tag">软件下载</span><span class="site-card__tag">其他</span></div>
+        </a>
+        <a class="site-card" href="https://blog.zhheo.com/" target="_blank" rel="noopener" data-cat="个人网站">
+          <div class="site-card__head">
+            <span class="site-card__logo"><img src="assets/icons/sites/real/zhheo.png" alt="张洪Heo"></span>
+            <span class="site-card__id"><span class="site-card__name">张洪Heo</span><span class="site-card__url">blog.zhheo.com</span></span>
+            <span class="site-card__cat">个人网站</span>
+          </div>
+          <span class="site-card__desc">设计科技分享博客</span>
+          <div class="site-card__tags"><span class="site-card__tag">个人博客</span><span class="site-card__tag">设计分享</span></div>
+        </a>
+      </section>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

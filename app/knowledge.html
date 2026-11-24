@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>知识库 · 兰博设计摊</title>
+<title>摘录 · 兰博设计摊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -19,80 +19,146 @@
       <!-- 页面标题 -->
       <section class="page-head">
         <div class="page-head__text">
-          <span class="kicker">03 / KNOWLEDGE BASE</span>
-          <h1 class="h-page-title">知识库</h1>
-          <p class="page-head__desc">把实践沉淀成文字。设计方法、技术笔记、效率心得，持续更新的个人知识库。</p>
+          <span class="kicker">03 / EXCERPT</span>
+          <h1 class="h-page-title">摘录</h1>
+          <p class="page-head__desc">收录值得反复阅读的好文章。设计洞察、行业观点与实践心得，精选整理，持续更新的个人摘录。</p>
         </div>
         <div class="stat-group">
-          <div class="stat"><span class="stat__num">48</span><span class="stat__label">篇笔记</span></div>
-          <div class="stat"><span class="stat__num">6</span><span class="stat__label">个分类</span></div>
+          <div class="stat"><span class="stat__num" id="kbNoteCount">8</span><span class="stat__label">篇笔记</span></div>
+          <div class="stat"><span class="stat__num" id="kbCatCount">6</span><span class="stat__label">个分类</span></div>
           <div class="stat"><span class="stat__num">周更</span><span class="stat__label">更新频率</span></div>
         </div>
       </section>
 
       <!-- 分类筛选 -->
       <div class="filter-row" role="group" aria-label="文章分类筛选">
-        <button class="filter-pill is-active" type="button">全部</button>
-        <button class="filter-pill" type="button">设计</button>
-        <button class="filter-pill" type="button">前端</button>
-        <button class="filter-pill" type="button">AI</button>
-        <button class="filter-pill" type="button">效率</button>
-        <button class="filter-pill" type="button">随笔</button>
+        <button class="filter-pill is-active" type="button" data-filter="all">全部</button>
+        <button class="filter-pill" type="button" data-filter="设计">设计</button>
+        <button class="filter-pill" type="button" data-filter="B端设计">B端设计</button>
+        <button class="filter-pill" type="button" data-filter="前端">前端</button>
+        <button class="filter-pill" type="button" data-filter="AI">AI</button>
+        <button class="filter-pill" type="button" data-filter="效率">效率</button>
+        <button class="filter-pill" type="button" data-filter="随笔">随笔</button>
       </div>
 
-      <!-- 置顶推荐 -->
-      <section class="pinned" aria-label="置顶推荐">
-        <span class="kicker">PINNED / 置顶推荐</span>
-        <a class="pinned-card" href="kb-detail.html">
-          <span class="pinned-card__bar" aria-hidden="true"></span>
-          <div class="pinned-card__body">
-            <span class="pinned-tag">设计 · DESIGN SYSTEM</span>
-            <span class="pinned-title">如何搭建一套可维护的设计系统</span>
-            <p class="pinned-desc">从设计令牌、组件分层到文档治理，系统梳理一套能随团队成长的 Design System 落地方法。</p>
-            <div class="pinned-meta"><span class="meta-date">2026.11.08</span><span class="meta-date">8 min read</span></div>
-          </div>
-          <span class="pinned-card__arrow"><img src="assets/icons/i-arrow.svg" alt=""></span>
-        </a>
-      </section>
-
-      <!-- 最新文章 -->
-      <section class="section" aria-labelledby="kb-latest-title">
-        <div class="section-head" style="margin-bottom:16px;">
-          <h2 class="h-section" id="kb-latest-title">最新文章</h2>
-          <a class="link-more" href="kb-detail.html">浏览全部 48 篇<img src="assets/icons/i-arrow.svg" alt=""></a>
-        </div>
+      <!-- 文章列表 / 原创（摘录文章置于首位） -->
+      <section class="section" id="yuanchuang" aria-labelledby="kb-latest-title">
         <div class="grid-3">
-          <a class="article-card" href="kb-detail.html">
+          <a class="article-card" id="zhailu" href="excerpt-jd-aigc.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">京东保险 UED · AIGC 提速案例</span>
+            <span class="article-card__desc">京东保险 UED 用 Midjourney 跑通关键词库与素材库，落地商详图、运营页、品牌宣传、营销海报等场景的大厂 AIGC 实践总结。</span>
+            <div class="article-card__foot"><span class="meta-date">5 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-sd-mac-nomatching.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">解决 MAC 安装 SD 报 No matching</span>
+            <span class="article-card__desc">Mac 安装 Stable Diffusion 报错 No matching distribution found for tb-nightly：查看 pip 源、换阿里镜像、重新执行 webui.sh 三步解决。</span>
+            <div class="article-card__foot"><span class="meta-date">1 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-sd-basics.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">零基础入门 Stable Diffusion</span>
+            <span class="article-card__desc">写给 0 基础设计师的 SD 入门：软件总览、五大模型、提示词与九大参数，再手把手做一个盲盒 IP 案例跑通全流程。</span>
+            <div class="article-card__foot"><span class="meta-date">15 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-midjourney.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">Midjourney 出图教程</span>
+            <span class="article-card__desc">从 Prompt 写法公式的五步拆解，到 U / V 放大变体、Remix 模式二次修正，一步步把美妆运营图从提示词做到成图。</span>
+            <div class="article-card__foot"><span class="meta-date">8 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-controlnet.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">ControlNet 超全教程</span>
+            <span class="article-card__desc">从 ControlNet 是什么、插件与模型安装，到 Canny、M-LSD、法线、OpenPose、涂鸦、伪涂鸦、语义分割七种模型的完整案例演示。</span>
+            <div class="article-card__foot"><span class="meta-date">20 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-sd-mac-deploy.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">手把手教你 Mac 本地部署 Stable Diffusion</span>
+            <span class="article-card__desc">保姆级教程：从 Mac 与 Midjourney 对比、Homebrew 与 Python 安装，到下载模型、启动 webui、设置中文，命令与截图一步不落。</span>
+            <div class="article-card__foot"><span class="meta-date">12 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-sd-notes.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">SD 学习笔记</span>
+            <span class="article-card__desc">从绘图流程与五大模型分类，到提示词书写规范与语法，再到采样、迭代、高分修复等核心参数的系统入门笔记。</span>
+            <div class="article-card__foot"><span class="meta-date">12 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-ai-motion.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">AI 辅助动效弹窗设计</span>
+            <span class="article-card__desc">用即梦做弹窗动效：一张开始图、一张结果图生成过渡动效，再以 AEpag 格式交付开发的极简两步工作流。</span>
+            <div class="article-card__foot"><span class="meta-date">1 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-sd-prompts.html" data-cat="AI">
+            <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">SD 模型咒语</span>
+            <span class="article-card__desc">盲盒、3D 卡通道具、玻璃拟态、B 端图标、充气膨胀风与金融 2.5D 六组模型的链接、触发词、正反向提示词与出图参数速查。</span>
+            <div class="article-card__foot"><span class="meta-date">12 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-icon-design.html" data-cat="设计">
+            <div class="article-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">图标设计</span>
+            <span class="article-card__desc">用房子图标演示斜度、圆角、形状、视图四种变化手法，再到融入品牌属性与三种常见风格，整理一套可复用思路。</span>
+            <div class="article-card__foot"><span class="meta-date">2 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-yilabao-size.html" data-cat="设计">
+            <div class="article-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">易拉宝设计尺寸</span>
+            <span class="article-card__desc">铁质门型展架 120 / 80 / 60 型的框架与画面尺寸对照，附 170cm 模特比例参照，做物料时快速查对。</span>
+            <div class="article-card__foot"><span class="meta-date">2 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-website-basics.html" data-cat="设计">
+            <div class="article-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">11.20</span></div>
+            <span class="article-card__title">从 0 开始做网站，你需要知道这 3 个方面</span>
+            <span class="article-card__desc">画布尺寸如何依据分辨率来定、侧导航与顶导航分别适合什么产品，以及三种适配方式的取舍，讲清网站设计起步阶段的关键决策。</span>
+            <div class="article-card__foot"><span class="meta-date">8 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-nb3dmap.html" data-cat="设计">
+            <div class="article-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">11.19</span></div>
+            <span class="article-card__title">插件 NB 3D Map 使用教程</span>
+            <span class="article-card__desc">一款快速生成三维地图的 Figma 插件：选国家、调视角、加标注与数据，还支持上传 GeoJSON 生成国内地图。</span>
+            <div class="article-card__foot"><span class="meta-date">6 min read</span></div>
+          </a>
+          <a class="article-card" href="excerpt-detail.html" data-cat="B端设计">
+            <div class="article-card__head"><span class="cat-badge cat-bend">B端设计</span><span class="meta-date">11.15</span></div>
+            <span class="article-card__title">【B端】系统登录导航入口也能做出高级感？</span>
+            <span class="article-card__desc">入口式布局与「简约、通透、轻科技」的视觉，看不同行业如何做出统一框架下的登录导航。</span>
+            <div class="article-card__foot"><span class="meta-date">5 min read</span></div>
+          </a>
+          <a class="article-card" href="kb-detail.html" data-cat="前端">
             <div class="article-card__head"><span class="cat-badge cat-front">前端</span><span class="meta-date">10.27</span></div>
             <span class="article-card__title">Vue 3 组件设计的 12 个实践要点</span>
             <span class="article-card__desc">从组合式 API 到插槽设计，提炼可复用的组件构建经验。</span>
             <div class="article-card__foot"><span class="meta-date">6 min read</span></div>
           </a>
-          <a class="article-card" href="kb-detail.html">
+          <a class="article-card" href="kb-detail.html" data-cat="设计">
             <div class="article-card__head"><span class="cat-badge cat-design">设计</span><span class="meta-date">09.30</span></div>
             <span class="article-card__title">深色模式配色的取舍与心得</span>
             <span class="article-card__desc">从对比度到层级，聊聊深色界面配色的关键决策。</span>
             <div class="article-card__foot"><span class="meta-date">7 min read</span></div>
           </a>
-          <a class="article-card" href="kb-detail.html">
+          <a class="article-card" href="kb-detail.html" data-cat="AI">
             <div class="article-card__head"><span class="cat-badge cat-ai">AI</span><span class="meta-date">10.15</span></div>
             <span class="article-card__title">我用 AI 重构工作流的三个月</span>
             <span class="article-card__desc">从提示词到自动化，记录人机协作的真实收益。</span>
             <div class="article-card__foot"><span class="meta-date">5 min read</span></div>
           </a>
-          <a class="article-card" href="kb-detail.html">
+          <a class="article-card" href="kb-detail.html" data-cat="效率">
             <div class="article-card__head"><span class="cat-badge cat-eff">效率</span><span class="meta-date">09.18</span></div>
             <span class="article-card__title">我的碎片时间管理系统</span>
             <span class="article-card__desc">如何把零散时间变成稳定的输入与输出。</span>
             <div class="article-card__foot"><span class="meta-date">4 min read</span></div>
           </a>
-          <a class="article-card" href="kb-detail.html">
+          <a class="article-card" href="kb-detail.html" data-cat="随笔">
             <div class="article-card__head"><span class="cat-badge cat-essay">随笔</span><span class="meta-date">08.28</span></div>
             <span class="article-card__title">设计师该不该学写代码</span>
             <span class="article-card__desc">关于设计与技术边界的一点个人思考。</span>
             <div class="article-card__foot"><span class="meta-date">6 min read</span></div>
           </a>
-          <a class="article-card" href="kb-detail.html">
+          <a class="article-card" href="kb-detail.html" data-cat="前端">
             <div class="article-card__head"><span class="cat-badge cat-front">前端</span><span class="meta-date">08.05</span></div>
             <span class="article-card__title">CSS 容器查询的实战场景</span>
             <span class="article-card__desc">用容器查询构建真正响应式的组件。</span>

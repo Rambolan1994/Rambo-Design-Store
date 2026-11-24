@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midjourney 出图教程 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">Midjourney 出图教程</h1>
+            <p class="article-lead">从 Prompt 关键词的写法公式出发，用主体、环境、构图、风格化与图像设定五步拆解一张美妆运营图，再结合 U / V 放大变体、Remix 模式二次修正，直到输出可用成图。</p>
+            <div class="author-row">
+              <span class="author-avatar">M</span>
+              <div class="author-info"><span class="author-info__name">原文作者 · 教程摘录</span><span class="author-info__meta">2026.11.20 · 原文摘录 · 8 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自《Midjourney 出图教程》，版权归原作者所有。操作步骤与配图按原文顺序转录，命令、参数与提示词保留英文原样，方便对照练习。</p>
+          </blockquote>
+
+          <!-- 00 前言 -->
+          <section class="chapter" id="ch0">
+            <h2 class="chapter__title">00 / Prompt：与 AI 沟通的媒介</h2>
+            <p class="chapter__p">Prompt 关键词描述可以理解为与 AI 创作沟通的媒介，我们需要将脑海中构想的画面用恰当的提示词（语句）描述出来，并通过它来缩小 AI 想象的空间，它才能听懂、理解并产出令人满意的画面。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/01.jpg" alt="Prompt 关键词描述示意" loading="lazy">
+              <figcaption>FIG 01 · Prompt 与 AI 创作</figcaption>
+            </figure>
+            <p class="chapter__p">另外值得注意的是，相同的描述文本内容，词语的顺序、前后词汇的关系对于内容的产出影响差异也会非常的大。所以关键词描述的写法至关重要。</p>
+            <p class="chapter__p">Prompt 的大致写法由几个部分构成：<span class="mono">主体</span>、<span class="mono">环境氛围</span>、<span class="mono">构图</span>、<span class="mono">风格化</span>，以及其他设定。我们接下来通过 Prompt 描述公式，一步步完成一张美妆运营图的设计。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/02.jpg" alt="Prompt 描述公式构成" loading="lazy">
+              <figcaption>FIG 02 · Prompt 描述公式</figcaption>
+            </figure>
+          </section>
+
+          <!-- 01 主体 -->
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 主体内容描述</h2>
+            <p class="chapter__p">首先是主体内容的描述，通常可以拆解为：存在几个「什么样的」的主体，在做什么动作，并附带了其他的什么动作。</p>
+            <p class="chapter__p">例如：<span class="mono">There was a pink lipstick and a glass bottle of perfume</span>，可以得到如下的主体内容 —— 香水口红的图像。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/03.jpg" alt="口红与香水主体内容生成结果" loading="lazy">
+              <figcaption>FIG 03 · 主体内容生成结果</figcaption>
+            </figure>
+          </section>
+
+          <!-- 02 环境 -->
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 场景与环境</h2>
+            <p class="chapter__p">其次为主体内容添加场景或环境，例如给定某些地点或物件。比如案例中，我们指定背景花朵、自然植物，以及倒影等词汇。</p>
+            <p class="chapter__p">通过观察四张图，可以发现模型中 <span class="mono">Nature Plants</span> 这个词汇对画面有较大的影响，决定了不同风格的背景以及复杂程度。同时也能发现，尽管只相差了一个描述词，但前后结果仍存在较大的差异，所以大家在调试画面的过程中可以从词汇逐个调整，以尽量减少画面的随机跳变。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/04.jpg" alt="添加花朵、自然植物等环境词汇的效果对比" loading="lazy">
+              <figcaption>FIG 04 · 环境词汇对比</figcaption>
+            </figure>
+          </section>
+
+          <!-- 03 构图与镜头 -->
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 构图与镜头</h2>
+            <p class="chapter__p">然后是构图与镜头，比如左侧两张图强调景深，右侧两张图强调了构图位置等。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/05.jpg" alt="景深与构图位置的效果对比" loading="lazy">
+              <figcaption>FIG 05 · 景深与构图对比</figcaption>
+            </figure>
+          </section>
+
+          <!-- 04 风格化 -->
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 风格化与参考方向</h2>
+            <p class="chapter__p">接下来是风格化与参考方向，可以添加上艺术家名字或平台名字，或直接将图像风格写出来；比如说 3D 渲染还是 2D 画风，可以从结果的明显区别中感受到差异。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/06.jpg" alt="3D 渲染与 2D 画风的效果对比" loading="lazy">
+              <figcaption>FIG 06 · 风格化方向对比</figcaption>
+            </figure>
+          </section>
+
+          <!-- 05 图像设定 -->
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 图像设定与画幅</h2>
+            <p class="chapter__p">最后是图像的设定，例如 <span class="mono">--q 5</span> 代表最高图像质量；同时你也可以通过类似 <span class="mono">8k, ultra realistic</span> 这样的词汇来对画质做强调。</p>
+            <p class="chapter__p">第二点是画幅：<span class="mono">--ar 3:2</span> 表示横纵比为 3 比 2 的横幅图像，<span class="mono">--ar 9:16</span> 表示横纵比为 9 比 16 的纵向图像；<span class="mono">-- v4</span> 代表最新的第四代计算模型。</p>
+            <p class="chapter__p">最终通过以上五个小步骤，我们可以得出一大批风格各异的草图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/07.jpg" alt="五步生成的风格草图合集" loading="lazy">
+              <figcaption>FIG 07 · 风格草图合集</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/08.jpg" alt="按风格调性筛选后的初稿" loading="lazy">
+              <figcaption>FIG 08 · 初稿筛选</figcaption>
+            </figure>
+            <p class="chapter__p">再通过第一步的风格调性做筛选，可以初步得出不同类型的初稿，以满足不同的品类需求。</p>
+          </section>
+
+          <!-- 06 二次修正 -->
+          <section class="chapter" id="ch6">
+            <h2 class="chapter__title">06 / 5.4 二次修正进阶调整</h2>
+            <p class="chapter__p">当取得满足需求的初稿之后，我们可以使用 Midjourney 的进阶功能，来提升图像质量或对图像画面做调整；以下是几个使用频率最高的调整功能。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/09.jpg" alt="Midjourney 进阶调整功能面板" loading="lazy">
+              <figcaption>FIG 09 · 进阶调整功能</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">1. U 按钮 · 放大分辨率</h3>
+            <p class="chapter__p">首先是通过点击成图下方的 <span class="mono">U</span> 按钮，可以放大对应序号的图片的比例，来提高其分辨率。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/10.jpg" alt="点击 U 按钮放大对应图片" loading="lazy">
+              <figcaption>FIG 10 · U 放大</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">2. V 按钮 · 生成变体</h3>
+            <p class="chapter__p">第二种，通过点击图片下方的 <span class="mono">V</span> 按钮，可以基于原描述词，生成对应序号图片的变体。画面对比母版，图片的细节会出现随机变化，例如上图的花蕊、香水瓶的外轮廓。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/11.jpg" alt="点击 V 按钮生成图片变体" loading="lazy">
+              <figcaption>FIG 11 · V 变体</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">3. Light / Beta Upscale Redo</h3>
+            <p class="chapter__p">第三种是 <span class="mono">Light Upscale Redo</span> 与 <span class="mono">Beta Upscale Redo</span>，这两个功能都可以提升画质并细化效果。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/12.jpg" alt="Light Upscale Redo 与 Beta Upscale Redo 效果" loading="lazy">
+              <figcaption>FIG 12 · 画质细化</figcaption>
+            </figure>
+
+            <h3 class="chapter__subtitle">4. Remix Mode · 二次编辑关键词</h3>
+            <p class="chapter__p">最后一种也是变体生成方法。值得注意的是，需在 <span class="mono">/setting</span> 中开启 <span class="mono">Remix mode</span> 功能后，再次点 <span class="mono">V</span> 功能，此时可以二次编辑关键词；例如上图就通过 Remix mode 重置了图像的尺寸比例。</p>
+          </section>
+
+          <!-- 07 调整输出 -->
+          <section class="chapter" id="ch7">
+            <h2 class="chapter__title">07 / 5.5 调整输出</h2>
+            <p class="chapter__p">将二次修正后的图像，经过设计师轻量化的调整工作，例如修正细节、添加文案后，即可看到最后的效果。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-midjourney/13.jpg" alt="最终调整输出的美妆运营图" loading="lazy">
+              <figcaption>FIG 13 · 最终效果</figcaption>
+            </figure>
+          </section>
+
+          <div class="quote-card">
+            <span class="quote-card__t">「 主体、环境、构图、风格化、设定 —— 五步写清 Prompt，再用 U / V 与 Remix 反复修正，把随机出图变成可控设计。 」</span>
+            <span class="quote-card__by">— 原文要点整理</span>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">Midjourney</span>
+            <span class="chip chip--orange">Prompt</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch0">00&nbsp;&nbsp;Prompt 与 AI</span>
+            <span class="toc__link" data-target="ch1">01&nbsp;&nbsp;主体内容</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;场景与环境</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;构图与镜头</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;风格化方向</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;图像设定与画幅</span>
+            <span class="toc__link" data-target="ch6">06&nbsp;&nbsp;二次修正进阶</span>
+            <span class="toc__link" data-target="ch7">07&nbsp;&nbsp;调整输出</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">整理 2026.11.20</span>
+          <span class="toc__meta-v">阅读时长 8 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

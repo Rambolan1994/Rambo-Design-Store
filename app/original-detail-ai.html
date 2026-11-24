@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>利用豆包 AI 生成书籍封面底图 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="original-ai">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="original.html#yuanchuang"><img src="assets/icons/i-arrow-back.svg" alt="">返回原创</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">原创 · AI 工具实践</span>
+            <h1 class="article-title">利用豆包 AI 生成书籍封面底图</h1>
+            <p class="article-lead">以「红树林、海与海鸥」主题封面为例，完整记录从提示词生成、智能编辑、擦除工具到扩图调整为 9:16 封面的实战过程。</p>
+            <div class="author-row">
+              <span class="author-avatar">兰</span>
+              <div class="author-info"><span class="author-info__name">兰博</span><span class="author-info__meta">2026.11.19 · 原创经验 · 8 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 理解封面的元素要求</h2>
+            <p class="chapter__p">首先了解甲方的书籍封面要求。例如甲方要求底纹包含红树林、海和海鸥元素，那就把这些关键元素作为提示词的核心。</p>
+          </section>
+
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 输入提示词生成候选图</h2>
+            <p class="chapter__p">在豆包软件的输入框输入：「帮我生成一张有红树林、海和几只海鸥的纯色黑白手绘风格的图」。豆包会生成四张比较符合要求的图片。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/1.webp" alt="豆包生成的四张红树林海鸥黑白手绘候选图" loading="lazy">
+              <figcaption>FIG 01 · 豆包生成的四张候选底图</figcaption>
+            </figure>
+          </section>
+
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 智能编辑微调细节</h2>
+            <p class="chapter__p">如果只有某一张比较符合预期，可以点选那张图片，点击左上角的「智能编辑」，针对这张图再次修改想要的效果。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/2.webp" alt="选中一张候选图进入智能编辑" loading="lazy">
+              <figcaption>FIG 02 · 选中图片进入智能编辑</figcaption>
+            </figure>
+            <p class="chapter__p">例如输入「树木占的比例小一点」，点击发送，树木就会矮一点了。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/3.webp" alt="输入树木比例小一点的提示词" loading="lazy">
+              <figcaption>FIG 03 · 输入「树木占的比例小一点」</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/4.webp" alt="调整后树木比例变小的结果" loading="lazy">
+              <figcaption>FIG 04 · 调整后的效果</figcaption>
+            </figure>
+          </section>
+
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 擦除工具去掉多余元素</h2>
+            <p class="chapter__p">如果想要去掉天空中的海鸥，可以通过「擦除工具」处理：点击图片，选择擦除工具，涂抹想要擦除的区域，点击「擦除所选区域」。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/5.webp" alt="选择擦除工具准备涂抹区域" loading="lazy">
+              <figcaption>FIG 05 · 选择擦除工具</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/6.webp" alt="涂抹天空中的海鸥区域" loading="lazy">
+              <figcaption>FIG 06 · 涂抹要擦除的海鸥</figcaption>
+            </figure>
+            <p class="chapter__p">确认后即可把多余的海鸥擦除掉，得到干净的底图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/7.webp" alt="擦除海鸥后的正方形底图" loading="lazy">
+              <figcaption>FIG 07 · 擦除后的底图</figcaption>
+            </figure>
+          </section>
+
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 扩图调整为书籍比例</h2>
+            <p class="chapter__p">书籍比例是 9:16，而这张图是正方形的。可以通过「扩图」功能调整：在该图左上角点击「扩图」，选择想要的比例。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/8.webp" alt="选择扩图比例为 9:16" loading="lazy">
+              <figcaption>FIG 08 · 选择扩图比例</figcaption>
+            </figure>
+            <p class="chapter__p">再点击「按新尺寸生成图片」，就能得到一张 9:16 尺寸的封面底图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/original-ai/9.webp" alt="最终生成的 9:16 书籍封面底图" loading="lazy">
+              <figcaption>FIG 09 · 最终 9:16 封面底图</figcaption>
+            </figure>
+            <div class="quote-card">
+              <span class="quote-card__t">「 生图、智能编辑、擦除、扩图——四步就能把 AI 底图调整成符合书籍比例的封面。 」</span>
+              <span class="quote-card__by">— 原创工具实践</span>
+            </div>
+          </section>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--purple">AI 工具</span>
+            <span class="chip chip--blue">豆包</span>
+            <span class="chip chip--orange">封面设计</span>
+          </div>
+
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch1">01&nbsp;&nbsp;理解元素</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;生成候选图</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;智能编辑</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;擦除多余元素</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;扩图调比例</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">发布于 2026.11.19</span>
+          <span class="toc__meta-v">阅读时长 8 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI 工具实践</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>
