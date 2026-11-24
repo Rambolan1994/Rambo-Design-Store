@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手把手教你 Mac 本地部署 Stable Diffusion · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">手把手教你 Mac 本地部署 Stable Diffusion</h1>
+            <p class="article-lead">来自优设网 Wincy_Fu 的保姆级教程：从为什么本地部署、Mac 与 Midjourney 的对比，到 Homebrew / Python / 模型下载 / 启动与设置中文的完整步骤，命令与截图一步不落。</p>
+            <div class="author-row">
+              <span class="author-avatar">W</span>
+              <div class="author-info"><span class="author-info__name">Wincy_Fu · 原文作者</span><span class="author-info__meta">2023.07.07 · 原文摘录 · 12 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自优设网《保姆级教程！手把手教你 Mac 本地部署 Stable-Diffusion》，版权归原作者所有。命令、路径与步骤按原文转录，配图为原文截图，方便对照操作。</p>
+          </blockquote>
+
+          <!-- 01 写在前面 -->
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 写在前面：为什么要本地部署</h2>
+            <p class="chapter__p">作者观察到 AIGC 浪潮下，设计师陆续体验了 ChatGPT、Midjourney 等工具。由于 Stable Diffusion 需要本地部署、对安装有门槛，劝退了不少人；作者查阅资料后成功在 Mac 上部署，于是整理出这份过程记录。</p>
+            <p class="chapter__p">Stable Diffusion 是文本到图像的潜在扩散模型。作者认为它的出现会成为画师的竞争对手、甚至抢走饭碗，目前已在很多领域开始应用，因此更值得尝试。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/01.jpg" alt="教程封面与写在前面、01 为什么要下载 Stable Diffusion" loading="lazy">
+              <figcaption>FIG 01 · 封面 / 写在前面 / 01 为什么要下载 SD</figcaption>
+            </figure>
+          </section>
+
+          <!-- 02 对比与准备 -->
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / Midjourney 对比与安装前准备</h2>
+            <p class="chapter__p">作者用一个比喻区分两者：Midjourney 和 Stable Diffusion 在图片处理领域的差别，就好像「美图秀秀」和「PS」——前者简单、按关键词即可出图且上手容易，但需要会员才能使用；后者免费、可配合 ControlNet 等插件用于实际项目，更适合想深入研究的人。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/02.jpg" alt="02 Midjourney 与 Stable Diffusion 对比表、03 安装步骤与配置要求" loading="lazy">
+              <figcaption>FIG 02 · 对比表 / 安装前准备</figcaption>
+            </figure>
+            <p class="chapter__p">两者的具体差异如下：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">价格</span>——Stable Diffusion 免费；Midjourney 每月 10-60 美元。</li>
+              <li><span class="chapter__list-k">上手难度</span>——Stable Diffusion 难；Midjourney 容易。</li>
+              <li><span class="chapter__list-k">生成优质图片惊艳程度</span>——Stable Diffusion 难；Midjourney 容易。</li>
+              <li><span class="chapter__list-k">是否可以制作自己的模型</span>——Stable Diffusion 是；Midjourney 否。</li>
+              <li><span class="chapter__list-k">扩展画面</span>——Stable Diffusion 是；Midjourney 否。</li>
+            </ul>
+            <h3 class="chapter__subtitle">03 安装前准备</h3>
+            <p class="chapter__p">作者笔记本配置较高，便以其为参考——机型 MacBook Pro、系统 macOS12、Intel i7 2.4GHz 四核、8G 内存、集成显卡；另需安装 Python 3.10。作者提醒：生成一张不复杂的图片需 10-20 分钟，期间可能卡顿、鼠标动不了；不复杂的图描述约三个英文单词即可，生图大概率 10 分钟内，参数默认出图 1 张、尺寸 512。</p>
+          </section>
+
+          <!-- 03 安装环境 -->
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 安装 Homebrew、Python 与 Clone 项目</h2>
+            <h3 class="chapter__subtitle">1. 安装 Homebrew</h3>
+            <p class="chapter__p">Homebrew 是 macOS（或 Linux）缺失的软件包管理器。（温馨提示：安装过程需全程开启科学上网。）官网 <a class="inline-link" href="https://brew.sh/index_zh-cn" target="_blank" rel="noopener">https://brew.sh/index_zh-cn</a>，只需复制粘贴官网命令到本地终端。验证是否安装成功，在终端输入 <span class="mono">brew -v</span>；若显示 Homebrew 版本号（原文为 4.0.11）即为成功。</p>
+            <h3 class="chapter__subtitle">2. 安装 Python</h3>
+            <p class="chapter__p">使用 Python 3.10 及以上版本，复制下方命令到终端等待安装即可：</p>
+            <p class="chapter__p"><span class="mono">brew install cmake protobuf rust python@3.10 git wget</span></p>
+            <h3 class="chapter__subtitle">3. Clone 下载代码</h3>
+            <p class="chapter__p">新建一个终端，运行：</p>
+            <p class="chapter__p"><span class="mono">git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui</span></p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/03.jpg" alt="安装 Homebrew、Python、Clone 项目的命令与截图" loading="lazy">
+              <figcaption>FIG 03 · Homebrew / Python / Clone 步骤</figcaption>
+            </figure>
+          </section>
+
+          <!-- 04 下载模型 -->
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 下载 SD 模型</h2>
+            <p class="chapter__p">代码 Clone 完成后，还需要下载模型，文件大小一般都是 GB 级别。作者为方便在 Civitai 上下载了一个小的，大家可按需下载，二选一即可。</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">SD 1.4</span>——<a class="inline-link" href="https://huggingface.co/CompVis/stable-diffusion-v-1-4" target="_blank" rel="noopener">huggingface.co/CompVis/stable-diffusion-v-1-4</a>。</li>
+              <li><span class="chapter__list-k">SD 1.5</span>——<a class="inline-link" href="https://huggingface.co/runwayml/stable-diffusion-v1-5" target="_blank" rel="noopener">huggingface.co/runwayml/stable-diffusion-v1-5</a>。</li>
+              <li><span class="chapter__list-k">v1-5 权重选择</span>——v1-5-pruned-emaonly.ckpt（4.27GB，显存占用少、适合推理）；v1-5-pruned.ckpt（7.7GB，ema 权重、显存占用多）。</li>
+              <li><span class="chapter__list-k">Civitai 下载</span>——<a class="inline-link" href="https://civitai.com/" target="_blank" rel="noopener">https://civitai.com/</a>，也可直接下载各种模型。</li>
+              <li><span class="chapter__list-k">模型放置路径</span>——<span class="mono">stable-diffusion-webui / models / Stable-diffusion</span>。</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/04.jpg" alt="下载 SD 模型：HuggingFace 与 Civitai" loading="lazy">
+              <figcaption>FIG 04 · 模型下载（HuggingFace / Civitai）</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/05.jpg" alt="模型文件放入 Stable-diffusion 目录，运行启动与设置中文" loading="lazy">
+              <figcaption>FIG 05 · 放置模型 / 运行启动 / 设置中文</figcaption>
+            </figure>
+          </section>
+
+          <!-- 05 运行启动 -->
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 运行启动</h2>
+            <p class="chapter__p">在终端执行程序，程序会自动安装依赖，首次启动耗时较长，需要耐心等待装完：</p>
+            <p class="chapter__p"><span class="mono">./webui.sh</span></p>
+            <p class="chapter__p">成功后终端会出现网址 <span class="mono">http://127.0.0.1:7860</span>，复制该网址即可在 Mac 本地使用 SD。作者安装时曾报错，选择「万能法重启重装」后解决。</p>
+          </section>
+
+          <!-- 06 开始使用 -->
+          <section class="chapter" id="ch6">
+            <h2 class="chapter__title">06 / 开始使用</h2>
+            <p class="chapter__p">完成后，复制网址 <span class="mono">http://127.0.0.1:7860</span> 到浏览器，即可看到熟悉的操作界面并正常使用了。</p>
+          </section>
+
+          <!-- 07 设置中文 -->
+          <section class="chapter" id="ch7">
+            <h2 class="chapter__title">07 / 设置中文（习惯英文可跳过）</h2>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">1. 安装语言包</span>——Settings → User interface，去掉勾选「Load from local」，下拉找到 <span class="mono">zh_CN Localization</span>，点右侧 Install 安装。</li>
+              <li><span class="chapter__list-k">2. 切换语言</span>——装完后回到 Settings → User interface → Language 选 <span class="mono">zh_CN</span>。</li>
+              <li><span class="chapter__list-k">3. 应用生效</span>——点击「Apply settings」，再点击「Reload UI」，即可看到中文界面。</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/06.jpg" alt="设置中文：安装 zh_CN Localization 并切换语言" loading="lazy">
+              <figcaption>FIG 06 · 设置中文完整步骤</figcaption>
+            </figure>
+          </section>
+
+          <!-- 08 关闭后下次开启 -->
+          <section class="chapter" id="ch8">
+            <h2 class="chapter__title">08 / 关闭后下次开启</h2>
+            <p class="chapter__p">推荐使用「超级右键」（App Store 直接搜索安装）。安装后找到「Stable-diffusion-webui」文件夹，右键选择进入终端，输入第 5 步的命令 <span class="mono">./webui.sh</span>，等待出现 <span class="mono">http://127.0.0.1:7860</span> 网址即可。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-mac-deploy/07.jpg" alt="关闭后下次开启：右键进入终端重新启动与结语" loading="lazy">
+              <figcaption>FIG 07 · 下次开启方式 / 结语</figcaption>
+            </figure>
+          </section>
+
+          <div class="quote-card">
+            <span class="quote-card__t">「 Homebrew → Python → Clone → 下模型 → ./webui.sh → http://127.0.0.1:7860，Mac 本地部署 SD 的完整链路。 」</span>
+            <span class="quote-card__by">— 原文步骤整理</span>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">Stable Diffusion</span>
+            <span class="chip chip--orange">Mac 部署</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch1">01&nbsp;&nbsp;写在前面</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;对比与准备</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;安装环境</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;下载模型</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;运行启动</span>
+            <span class="toc__link" data-target="ch6">06&nbsp;&nbsp;开始使用</span>
+            <span class="toc__link" data-target="ch7">07&nbsp;&nbsp;设置中文</span>
+            <span class="toc__link" data-target="ch8">08&nbsp;&nbsp;下次开启</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">原文 2023.07.07</span>
+          <span class="toc__meta-v">阅读时长 12 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

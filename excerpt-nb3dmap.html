@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>插件 NB 3D Map 使用教程 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · 设计工具</span>
+            <h1 class="article-title">插件 NB 3D Map 使用教程</h1>
+            <p class="article-lead">一款快速生成海外三维地图的 Figma 插件教程：从多国地图选择、视角拖拽缩放，到高度 / 颜色调整、标记点与图片标注、柱状图数据与轨迹路径编辑，再到上传 GeoJSON 生成国内地图与钢笔手绘区块，全流程上手。</p>
+            <div class="author-row">
+              <span class="author-avatar">N</span>
+              <div class="author-info"><span class="author-info__name">NB 工具 · 原文作者</span><span class="author-info__meta">2026.11.19 · 原文摘录 · 6 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>教程整理自网络公开文档，版权归原作者所有。以下为原文内容整理，完整说明与最新插件请见文末原文链接。</p>
+          </blockquote>
+
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 关于插件：让海外地图快速三维化</h2>
+            <p class="chapter__p">NB 3D Map 是一款生成海外三维地图的插件。作者发现互联网上的国外地图大多没有标注各板块名称，于是手动为全部板块命名并修正了文字位置，工作量相当大——尤其是带岛屿的国家。目前插件已上线 Figma，可直接使用。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/01-workload.png" alt="手动为海外地图板块命名的工作量大" loading="lazy">
+              <figcaption>FIG 01 · 作者手动为海外地图板块命名</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/02-plugin-entry.png" alt="NB 3D Map 插件入口界面" loading="lazy">
+              <figcaption>FIG 02 · 插件界面入口</figcaption>
+            </figure>
+            <a class="source-link" href="https://www.figma.com/community/plugin/1347781576723248244/nb-3d-map" target="_blank" rel="noopener noreferrer">
+              <span class="source-link__ico"><img src="assets/icons/i-external.svg" alt=""></span>
+              <span class="source-link__text">
+                <span class="source-link__k">插件地址 / FIGMA COMMUNITY</span>
+                <span class="source-link__t">NB 3D Map · Figma 社区插件</span>
+                <span class="source-link__url">figma.com/community/plugin/1347781576723248244/nb-3d-map</span>
+              </span>
+              <img class="source-link__arrow" src="assets/icons/i-arrow.svg" alt="">
+            </a>
+          </section>
+
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 快速上手：选择地图与视角操作</h2>
+            <p class="chapter__p">进入插件界面后，可以选择各个国家的地图。由于国家数量很多，界面左下角专门提供了搜索框，输入英文名称即可快速定位目标国家。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/03-country-list.png" alt="插件内可选择各个国家的地图" loading="lazy">
+              <figcaption>FIG 03 · 选择国家地图，左下角可搜索英文名</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/04-plugin-panel.png" alt="进入某个国家地图的操作界面" loading="lazy">
+              <figcaption>FIG 04 · 进入地图操作界面</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/05-plugin-panel.gif" alt="插件地图操作界面演示" loading="lazy">
+              <figcaption>FIG 05 · 地图操作界面</figcaption>
+            </figure>
+            <p class="chapter__p">选中进入操作界面后，通过鼠标即可调整视角：拖拽鼠标改变地图角度，滚动滚轮放大或缩小地图，操作非常直观。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/06-drag-angle.gif" alt="拖拽鼠标改变地图角度" loading="lazy">
+              <figcaption>FIG 06 · 拖拽鼠标改变地图角度</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/07-zoom.gif" alt="滚动鼠标滚轮放大缩小地图" loading="lazy">
+              <figcaption>FIG 07 · 滚动滚轮放大或缩小地图</figcaption>
+            </figure>
+          </section>
+
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 编辑与标注：把地图变成作品</h2>
+            <p class="chapter__p">插件的编辑能力很完整，常用操作包括：</p>
+            <p class="chapter__p">① 单独调整某个地区的高度或颜色，突出重点区域；</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/08-height-color.gif" alt="单独调整某个地区的高度或颜色" loading="lazy">
+              <figcaption>FIG 08 · 调整单个地区的高度或颜色</figcaption>
+            </figure>
+            <p class="chapter__p">② 添加标记点，自由标注任意位置；</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/09-markers.png" alt="在地图上添加标记点" loading="lazy">
+              <figcaption>FIG 09 · 添加标记点，自由标注任意位置</figcaption>
+            </figure>
+            <p class="chapter__p">③ 换成更有意义的图片标记，让标注更美观；</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/10-image-marker.gif" alt="使用图片标记让标注更美观" loading="lazy">
+              <figcaption>FIG 10 · 用图片标记替代普通标记点</figcaption>
+            </figure>
+            <p class="chapter__p">④ 为板块展示数据，柱状图的位置和数值都可自由编辑；</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/11-bar-data.gif" alt="在板块上展示柱状图数据" loading="lazy">
+              <figcaption>FIG 11 · 为板块添加可编辑的柱状图数据</figcaption>
+            </figure>
+            <p class="chapter__p">⑤ 编辑轨迹路径，线条的位置、高度、颜色均可调整；</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/12-track-line.gif" alt="在地图上编辑轨迹路径" loading="lazy">
+              <figcaption>FIG 12 · 编辑轨迹路径的位置、高度与颜色</figcaption>
+            </figure>
+            <p class="chapter__p">⑥ 给地图叠加材质，提升整体质感。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/13-material.png" alt="给地图叠加材质" loading="lazy">
+              <figcaption>FIG 13 · 给地图叠加材质</figcaption>
+            </figure>
+            <p class="chapter__p">完成后既可以把地图保存到本地，也可以直接插入 Figma，甚至支持插入透明背景的图片，方便继续设计。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/14-save-local.png" alt="把制作好的地图保存到本地" loading="lazy">
+              <figcaption>FIG 14 · 保存到本地，或直接插入 Figma</figcaption>
+            </figure>
+          </section>
+
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 生成国内地图：上传 GeoJSON 数据</h2>
+            <p class="chapter__p">如果只想做国内地图，可以先到数据网站下载 GeoJSON 文件，再上传到 NB 3D Map 插件，即可自动生成三维地图。</p>
+            <p class="chapter__p">省级地图推荐用阿里云 DataV 的行政区选择器，右侧可选择不同省份；区县级地图推荐 poi86，更适合细颗粒度，例如从浙江省 → 杭州市 → 西湖区，下载解压后上传其中的 330106.geojson 文件即可生成西湖区地图（该站可能需要科学上网）。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/15-datav-link.png" alt="阿里云 DataV 地理小工具平台首页" loading="lazy">
+              <figcaption>FIG 15 · 阿里云 DataV · 地理小工具平台</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/16-datav-download.png" alt="在阿里云 DataV 右侧选择不同省份下载地图" loading="lazy">
+              <figcaption>FIG 16 · 右侧选择省份，下载对应地图数据</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/17-poi86-link.png" alt="poi86 网站首页的 POI 数据行政区划列表" loading="lazy">
+              <figcaption>FIG 17 · poi86 · POI 数据行政区划列表</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/18-poi86-site.png" alt="poi86 网站下载区县地图" loading="lazy">
+              <figcaption>FIG 18 · poi86：下载细颗粒度区县地图</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/19-xihu-district.png" alt="通过浙江省杭州市西湖区得到西湖区地图" loading="lazy">
+              <figcaption>FIG 19 · 浙江省 → 杭州市 → 西湖区，得到西湖区地图</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/20-geojson-file.png" alt="解压后上传 330106.geojson 文件" loading="lazy">
+              <figcaption>FIG 20 · 解压后上传 330106.geojson 文件</figcaption>
+            </figure>
+            <a class="source-link" href="https://datav.aliyun.com/portal/school/atlas/area_selector" target="_blank" rel="noopener noreferrer">
+              <span class="source-link__ico"><img src="assets/icons/i-external.svg" alt=""></span>
+              <span class="source-link__text">
+                <span class="source-link__k">数据网站 / GEOJSON</span>
+                <span class="source-link__t">阿里云 DataV · 行政区选择器（省级）</span>
+                <span class="source-link__url">datav.aliyun.com/portal/school/atlas/area_selector</span>
+              </span>
+              <img class="source-link__arrow" src="assets/icons/i-arrow.svg" alt="">
+            </a>
+            <a class="source-link" href="https://www.poi86.com/poi/amap.html" target="_blank" rel="noopener noreferrer">
+              <span class="source-link__ico"><img src="assets/icons/i-external.svg" alt=""></span>
+              <span class="source-link__text">
+                <span class="source-link__k">数据网站 / GEOJSON</span>
+                <span class="source-link__t">poi86 · 细颗粒度区县地图</span>
+                <span class="source-link__url">www.poi86.com/poi/amap.html</span>
+              </span>
+              <img class="source-link__arrow" src="assets/icons/i-arrow.svg" alt="">
+            </a>
+          </section>
+
+          <section class="chapter" id="ch5">
+            <h2 class="chapter__title">05 / 自定义绘制：用钢笔做出任意区块</h2>
+            <p class="chapter__p">当区县地图仍满足不了需求，比如要绘制某个厂房的地图，可以直接用 Figma 的钢笔工具：新建一个 Frame，用钢笔勾出需要的区块，再用文字工具写上名称，就能得到一张自己绘制的地图。同样可以在上面添加文字、标记点、轨迹线和柱状图等元素。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/21-factory-map.png" alt="用钢笔绘制的厂房区块地图示例" loading="lazy">
+              <figcaption>FIG 21 · 用钢笔绘制厂房等自定义区块地图</figcaption>
+            </figure>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-nb3dmap/22-pen-draw.png" alt="在 Figma 中新建 Frame 用钢笔勾出区块并命名" loading="lazy">
+              <figcaption>FIG 22 · 新建 Frame，钢笔勾区块 + 文字命名</figcaption>
+            </figure>
+            <div class="quote-card">
+              <span class="quote-card__t">「 海外地图用插件选国家，国内地图用 GeoJSON 生成，特殊场景就用钢笔自己画——三种方式覆盖几乎所有地图需求。 」</span>
+              <span class="quote-card__by">— 原文要点整理</span>
+            </div>
+          </section>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip">3D 地图</span>
+            <span class="chip chip--blue">Figma 插件</span>
+            <span class="chip chip--orange">设计工具</span>
+          </div>
+
+          <!-- 原文链接 -->
+          <a class="source-link" href="https://docs.qq.com/doc/DT2FIQmZ5bHNzdWdP" target="_blank" rel="noopener noreferrer">
+            <span class="source-link__ico"><img src="assets/icons/i-external.svg" alt=""></span>
+            <span class="source-link__text">
+              <span class="source-link__k">原文链接 / ORIGINAL ARTICLE</span>
+              <span class="source-link__t">查看原文《插件 NB 3D Map 使用教程》</span>
+              <span class="source-link__url">https://docs.qq.com/doc/DT2FIQmZ5bHNzdWdP</span>
+            </span>
+            <img class="source-link__arrow" src="assets/icons/i-arrow.svg" alt="">
+          </a>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch1">01&nbsp;&nbsp;关于插件</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;选择地图与视角</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;编辑与标注</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;国内地图</span>
+            <span class="toc__link" data-target="ch5">05&nbsp;&nbsp;自定义绘制</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">整理 2026.11.19</span>
+          <span class="toc__meta-v">阅读时长 6 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · 设计工具</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

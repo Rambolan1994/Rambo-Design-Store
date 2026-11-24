@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图片收藏 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="images" data-page="images">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <!-- 页面标题区 -->
+      <section class="page-head">
+        <div class="page-head__text">
+          <span class="kicker">05 / IMAGES</span>
+          <h1 class="h-page-title">图片收藏</h1>
+          <p class="page-head__desc">平时收集的视觉素材与灵感图库，按主题分类整理，随取随用。</p>
+        </div>
+        <div class="stat-group">
+          <div class="stat"><span class="stat__num" id="imgCount">16</span><span class="stat__label">收藏图片</span></div>
+          <div class="stat"><span class="stat__num" id="imgCatCount">5</span><span class="stat__label">图片分类</span></div>
+          <div class="stat"><span class="stat__num">2026</span><span class="stat__label">最近更新</span></div>
+        </div>
+      </section>
+
+      <!-- 分类筛选 -->
+      <div class="filter-row" role="group" aria-label="图片分类筛选">
+        <button class="filter-pill is-active" type="button" data-filter="all">全部图片</button>
+        <button class="filter-pill" type="button" data-filter="UI 界面">UI 界面</button>
+        <button class="filter-pill" type="button" data-filter="插画">插画</button>
+        <button class="filter-pill" type="button" data-filter="摄影">摄影</button>
+        <button class="filter-pill" type="button" data-filter="材质纹理">材质纹理</button>
+        <button class="filter-pill" type="button" data-filter="图标图形">图标图形</button>
+      </div>
+
+      <!-- 瀑布流图片墙 -->
+      <section class="img-wall" aria-label="图片收藏">
+        <figure class="img-card" data-cat="UI 界面">
+          <div class="img-card__media" style="height:172px;background-image:url('assets/images/collections/smart-park.jpg');"><span class="img-card__tag">UI 界面</span></div>
+        </figure>
+        <figure class="img-card" data-cat="UI 界面">
+          <div class="img-card__media" style="height:172px;background-image:url('assets/images/collections/medical-analyzer.png');"><span class="img-card__tag">UI 界面</span></div>
+        </figure>
+        <figure class="img-card" data-cat="摄影">
+          <div class="img-card__media g03" style="height:230px;"><span class="img-card__tag">摄影</span></div>
+        </figure>
+        <figure class="img-card" data-cat="材质纹理">
+          <div class="img-card__media g04" style="height:285px;"><span class="img-card__tag">材质纹理</span></div>
+        </figure>
+        <figure class="img-card" data-cat="图标图形">
+          <div class="img-card__media g05" style="height:190px;"><span class="img-card__tag">图标图形</span></div>
+        </figure>
+        <figure class="img-card" data-cat="UI 界面">
+          <div class="img-card__media g06" style="height:245px;"><span class="img-card__tag">UI 界面</span></div>
+        </figure>
+        <figure class="img-card" data-cat="插画">
+          <div class="img-card__media g07" style="height:205px;"><span class="img-card__tag">插画</span></div>
+        </figure>
+        <figure class="img-card" data-cat="摄影">
+          <div class="img-card__media g08" style="height:270px;"><span class="img-card__tag">摄影</span></div>
+        </figure>
+        <figure class="img-card" data-cat="材质纹理">
+          <div class="img-card__media g09" style="height:220px;"><span class="img-card__tag">材质纹理</span></div>
+        </figure>
+        <figure class="img-card" data-cat="UI 界面">
+          <div class="img-card__media g10" style="height:265px;"><span class="img-card__tag">UI 界面</span></div>
+        </figure>
+        <figure class="img-card" data-cat="插画">
+          <div class="img-card__media g11" style="height:195px;"><span class="img-card__tag">插画</span></div>
+        </figure>
+        <figure class="img-card" data-cat="摄影">
+          <div class="img-card__media g12" style="height:235px;"><span class="img-card__tag">摄影</span></div>
+        </figure>
+        <figure class="img-card" data-cat="图标图形">
+          <div class="img-card__media g13" style="height:210px;"><span class="img-card__tag">图标图形</span></div>
+        </figure>
+        <figure class="img-card" data-cat="插画">
+          <div class="img-card__media g14" style="height:255px;"><span class="img-card__tag">插画</span></div>
+        </figure>
+        <figure class="img-card" data-cat="材质纹理">
+          <div class="img-card__media g15" style="height:200px;"><span class="img-card__tag">材质纹理</span></div>
+        </figure>
+        <figure class="img-card" data-cat="插画">
+          <div class="img-card__media g16" style="height:270px;"><span class="img-card__tag">插画</span></div>
+        </figure>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- 图片查看弹窗 Lightbox -->
+<div class="lb-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="图片查看" aria-hidden="true">
+  <div class="lb-stage" id="lbStage">
+    <div class="lb-image" id="lbImage"></div>
+  </div>
+  <button class="lb-close" id="lbClose" type="button" aria-label="关闭">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="lb-zoombar" id="lbZoombar">
+    <button class="lb-zoom-btn" id="lbZoomOut" type="button" aria-label="缩小">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>
+    </button>
+    <span class="lb-zoom-value" id="lbZoomValue">100%</span>
+    <button class="lb-zoom-btn" id="lbZoomIn" type="button" aria-label="放大">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5v14"/></svg>
+    </button>
+    <span class="lb-zoom-sep"></span>
+    <span class="lb-zoom-tip">滚轮缩放图片</span>
+  </div>
+</div>
+
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工具箱 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="toolbox" data-page="toolbox">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <!-- 页面标题区 -->
+      <section class="page-head">
+        <div class="page-head__text">
+          <span class="kicker">TOOLBOX / 工具箱</span>
+          <h1 class="h-page-title">工具箱</h1>
+          <p class="page-head__desc">为设计师与开发者打造的轻量在线工具，即开即用，永久免费。</p>
+        </div>
+        <div class="stat-group">
+          <div class="stat"><span class="stat__num">7</span><span class="stat__label">在线工具</span></div>
+          <div class="stat"><span class="stat__num">6</span><span class="stat__label">工具分类</span></div>
+          <div class="stat"><span class="stat__num">0</span><span class="stat__label">付费功能</span></div>
+        </div>
+      </section>
+
+      <!-- 分类筛选 -->
+      <div class="filter-row" role="group" aria-label="工具分类筛选">
+        <button class="filter-pill is-active" type="button" data-filter="all">全部</button>
+        <button class="filter-pill" type="button" data-filter="设计">设计</button>
+        <button class="filter-pill" type="button" data-filter="效率">效率</button>
+        <button class="filter-pill" type="button" data-filter="图片">图片</button>
+        <button class="filter-pill" type="button" data-filter="前端">前端</button>
+        <button class="filter-pill" type="button" data-filter="AI">AI</button>
+      </div>
+
+      <!-- 工具网格 -->
+      <section class="tool-grid" aria-label="在线工具">
+        <a class="tool-card" href="word-counter.html" data-cat="效率">
+          <div class="tool-card__head">
+            <span class="tool-icon-box"><img src="assets/icons/i-tool-counter.svg" alt=""></span>
+            <span class="state-pill">效率</span>
+          </div>
+          <span class="tool-card__name">字数统计</span>
+          <span class="tool-card__desc">中英文字数与字符实时统计</span>
+        </a>
+        <a class="tool-card" href="ratio-converter.html" data-cat="设计">
+          <div class="tool-card__head">
+            <span class="tool-icon-box"><img src="assets/icons/i-tool-ratio.svg" alt=""></span>
+            <span class="state-pill">设计</span>
+          </div>
+          <span class="tool-card__name">比例换算</span>
+          <span class="tool-card__desc">设计比例与尺寸快速换算</span>
+        </a>
+        <a class="tool-card" href="image-editor.html" data-cat="图片">
+          <div class="tool-card__head">
+            <span class="tool-icon-box"><img src="assets/icons/i-tool-image.svg" alt=""></span>
+            <span class="state-pill">图片</span>
+          </div>
+          <span class="tool-card__name">图片编辑</span>
+          <span class="tool-card__desc">在线裁剪、压缩与格式转换</span>
+        </a>
+        <a class="tool-card" href="#" data-cat="设计,AI">
+          <div class="tool-card__head">
+            <span class="tool-icon-box"><img src="assets/icons/i-tool-palette.svg" alt=""></span>
+            <span class="state-pill">设计 · AI</span>
+          </div>
+          <span class="tool-card__name">配色生成</span>
+          <span class="tool-card__desc">基于关键词的智能配色方案</span>
+        </a>
+        <a class="tool-card" href="#" data-cat="前端">
+          <div class="tool-card__head">
+            <span class="tool-icon-box"><img src="assets/icons/i-tool-qr.svg" alt=""></span>
+            <span class="state-pill">前端</span>
+          </div>
+          <span class="tool-card__name">二维码生成</span>
+          <span class="tool-card__desc">文本 / 链接一键生成二维码</span>
+        </a>
+        <a class="tool-card" href="#" data-cat="设计">
+          <div class="tool-card__head">
+            <span class="tool-icon-box"><img src="assets/icons/i-tool-radius.svg" alt=""></span>
+            <span class="state-pill">设计</span>
+          </div>
+          <span class="tool-card__name">圆角计算</span>
+          <span class="tool-card__desc">px 与百分比圆角快速换算</span>
+        </a>
+      </section>
+
+      <!-- 反馈 CTA -->
+      <section class="tool-cta" aria-label="工具反馈">
+        <div class="tool-cta__text">
+          <span class="tool-cta__title">有想要的工具？告诉我</span>
+          <span class="tool-cta__desc">欢迎反馈你常用的设计 / 开发小工具，我会持续补充到工具箱。</span>
+        </div>
+        <a class="tool-cta__btn" href="contact.html">提交建议</a>
+      </section>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SD 学习笔记 · 兰博设计摊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="article-detail" data-page="kb">
+<div class="app">
+  <main class="main">
+    <div class="content">
+
+      <a class="back-bar" href="knowledge.html#zhailu"><img src="assets/icons/i-arrow-back.svg" alt="">返回摘录</a>
+
+      <div class="article-layout">
+        <!-- 正文栏 -->
+        <article class="article-main">
+          <header class="article-head">
+            <span class="article-cat">摘录 · AI</span>
+            <h1 class="article-title">SD 学习笔记</h1>
+            <p class="article-lead">Stable Diffusion 入门笔记：从软件流程、五大模型分类，到提示词的书写规范与语法，再到采样、迭代、高分修复等核心参数的取舍。</p>
+            <div class="author-row">
+              <span class="author-avatar">S</span>
+              <div class="author-info"><span class="author-info__name">原文摘录 · 兰博整理</span><span class="author-info__meta">2026.11.20 · 原文摘录 · 12 min read</span></div>
+            </div>
+          </header>
+
+          <div class="article-divider"></div>
+
+          <blockquote class="article-quote">
+            <p>本文整理自一份 SD 学习笔记，覆盖从模型到提示词再到参数的完整入门路径。内容按原文结构与表述整理，方便回看与检索。</p>
+          </blockquote>
+
+          <!-- 01 软件总览 -->
+          <section class="chapter" id="ch1">
+            <h2 class="chapter__title">01 / 软件总览</h2>
+            <p class="chapter__p">SD 的绘图流程可以概括为四步：选择模型 → 输入提示词 → 设置参数 → 完成出图。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-notes/01-flow.jpg" alt="SD 绘图步骤流程图：选择模型、输入提示词、设置参数、完成出图" loading="lazy">
+              <figcaption>FIG 01 · SD 绘图步骤流程</figcaption>
+            </figure>
+            <p class="chapter__p">界面大致分为三块：模板选择、提示词部分、参数部分。</p>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-notes/02-interface.jpg" alt="SD 界面标注：模板选择、提示词部分、参数部分" loading="lazy">
+              <figcaption>FIG 02 · 界面分区（模板选择 / 提示词 / 参数）</figcaption>
+            </figure>
+          </section>
+
+          <!-- 02 模型 -->
+          <section class="chapter" id="ch2">
+            <h2 class="chapter__title">02 / 模型</h2>
+            <h3 class="chapter__subtitle">五大模型分类</h3>
+            <p class="chapter__p">模型按作用可分为三类：</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">基础底模型</span>——checkpoint（单独使用）。</li>
+              <li><span class="chapter__list-k">辅助模型</span>——Embedding、LoRA、Hypernetwork（配合底模使用）。</li>
+              <li><span class="chapter__list-k">美化模型</span>——VAE。</li>
+            </ul>
+            <p class="chapter__p">可以用烹饪来理解它们的区别：基础底模型相当于「炒」，辅助模型是「爆炒、小炒」，美化模型则是更细节的方式，例如「盐爆、葱爆、油爆」。在 SD 中，基础底模型必须有且只能有一种，而后面的模型没有限制——可以没有，也可以是一种或多种。</p>
+            <h3 class="chapter__subtitle">模型的下载和使用</h3>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">辨别类别</span>——从常用网站下载时已知类别；若来自百度网盘等其他渠道，可借助网站查询：<a class="inline-link" href="https://spell.novelai.dev/" target="_blank" rel="noopener">spell.novelai.dev</a>。</li>
+              <li><span class="chapter__list-k">放入文件夹</span>——把模型文件放到对应文件夹；可同时放一张同名预览图，调用时直接按图选择。命名上用「/」分类整理，例如「二次元/XXX」。</li>
+              <li><span class="chapter__list-k">调用模型</span>——基础底模型直接选择（找不到就点右侧刷新稍等）；VAE 在下拉框选，一般默认即可，出图发灰时再换。其他模型先点对应 icon 再点模型，上方正向提示词框会出现对应词，再点一下或删掉即可取消。部分模型还需输入特定触发词才能生效。</li>
+            </ul>
+          </section>
+
+          <!-- 03 提示词 -->
+          <section class="chapter" id="ch3">
+            <h2 class="chapter__title">03 / 提示词</h2>
+            <p class="chapter__p">提示词也就是我们对 AI 的指令。<span class="chapter__list-k">正向提示词</span>是对画面的描述，例如一个女孩、月亮、吉他、沙发；<span class="chapter__list-k">反向提示词</span>是你不想在画面中出现的元素或属性，例如低质量、畸形的手。</p>
+            <h3 class="chapter__subtitle">1. 基本规范</h3>
+            <ul class="chapter__list">
+              <li>提示词包括标点符号全部用英文的。</li>
+              <li>单词、短语、句子基本上等效。例如「1girl, sofa, sitting」与「A girl sitting on the sofa」对 SD 来说等效。</li>
+            </ul>
+            <h3 class="chapter__subtitle">2. 书写提示词的整体思路</h3>
+            <p class="chapter__p">给正向提示词时，一般通过分类描述的方式给出，分为整体描述、主体、场景三类。</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">整体描述 · 画质</span>——高画质 / 中等 / 低画质，2k、4k 等。</li>
+              <li><span class="chapter__list-k">整体描述 · 画风</span>——CG、二次元、真人等。</li>
+              <li><span class="chapter__list-k">整体描述 · 镜头</span>——人物占比，半身像还是全身像。</li>
+              <li><span class="chapter__list-k">整体描述 · 色调</span>——冷色调或暖色调。</li>
+              <li><span class="chapter__list-k">主体 · 头部</span>——眼睛大小颜色形状、鼻子大小形状、嘴巴大小形状、下巴形状；皮肤颜色纹理；面部特征细节（眼睛纹理、唇色、发色等）。</li>
+              <li><span class="chapter__list-k">主体 · 服饰</span>——服装、配饰等细节，可参考捏脸与服饰选择界面。</li>
+              <li><span class="chapter__list-k">主体 · 姿势</span>——人物的姿势，坐、立、跑等。</li>
+              <li><span class="chapter__list-k">场景</span>——基础：时间、地点、天气；进阶可加入细节，如天空中的蝴蝶、花瓣等。</li>
+            </ul>
+            <figure class="article-figure">
+              <img src="assets/images/excerpt-sd-notes/03-outfit.png" alt="角色捏脸与服饰选择界面参考" loading="lazy">
+              <figcaption>FIG 03 · 服饰与捏脸参考界面</figcaption>
+            </figure>
+            <h3 class="chapter__subtitle">3. 提示词的语法</h3>
+            <p class="chapter__p">有了提示词还不够，还要知道怎么把它组成 SD 可识别的格式。</p>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">连接方式</span>——不同提示词之间用英文逗号分隔；提示词越靠前权重越高，所以主体放前面。</li>
+              <li><span class="chapter__list-k">强化 / 弱化（权重数值）</span>——<span class="mono">(提示词:权重数值)</span>，取值 0.1～100，默认 1，小于 1 弱化、大于 1 强化，例如 <span class="mono">(a girl:0.8)</span>。</li>
+              <li><span class="chapter__list-k">强化 / 弱化（括号）</span>——加 () 表示强化、[] 表示弱化，可套多层加强程度，例如 <span class="mono">((a girl))</span>。</li>
+            </ul>
+            <p class="chapter__p"><span class="chapter__list-k">提示词进阶网站：</span></p>
+            <ul class="chapter__list">
+              <li><a class="inline-link" href="https://prompttool.com/NovelAI" target="_blank" rel="noopener">prompttool.com/NovelAI</a></li>
+              <li><a class="inline-link" href="https://wolfchen.top/tag/" target="_blank" rel="noopener">wolfchen.top/tag/</a></li>
+              <li><a class="inline-link" href="https://moonvy.com/apps/ops/" target="_blank" rel="noopener">moonvy.com/apps/ops/</a></li>
+              <li><a class="inline-link" href="http://poe.com/ChatGpt" target="_blank" rel="noopener">poe.com/ChatGpt</a></li>
+            </ul>
+          </section>
+
+          <!-- 04 参数 -->
+          <section class="chapter" id="ch4">
+            <h2 class="chapter__title">04 / 参数</h2>
+            <ul class="chapter__list">
+              <li><span class="chapter__list-k">1. 采样方法</span>——一般用 DPM++ 2M / DPM++ 2M Karras / UniPC；想要变化用 Euler a、DPM++ SDE、DPM++ SDE Karras、DPM2 a Karras。</li>
+              <li><span class="chapter__list-k">2. 迭代步数</span>——SD 用多少步把描述画出来。一般 20～40 步足够；每多一步都给 AI 更多机会比对并调整，但更费时间，也并非越高越好。</li>
+              <li><span class="chapter__list-k">3. 面部修复</span>——按个人喜好开关，对最终成像效果影响不大。</li>
+              <li><span class="chapter__list-k">4. 平铺图</span>——一般用不到。</li>
+              <li><span class="chapter__list-k">5. 高分辨率修复</span>——以重绘方式放大图像并补充细节。子参数：放大算法用默认值；高分迭代步数 10～20；重绘幅度 0.5～0.8（过小效果差、过大与原图差异大）；放大倍率即最终图与原图分辨率的比值，如 512×512 设 2 倍后为 1024×1024。</li>
+              <li><span class="chapter__list-k">6. 总批次数 / 单批数量</span>——一次性出图数量。搬 4 块砖：一次搬 4 块搬 1 次＝批次 1 / 单批 4；一次搬 1 块搬 4 次＝批次 4 / 单批 1。非顶级显卡一般保持单批数量为 1，靠增加总批次来多出图。</li>
+              <li><span class="chapter__list-k">7. 提示词引导系数</span>——生成画面与描述词的趋近程度，一般 7～15，太高也会出问题。</li>
+              <li><span class="chapter__list-k">8. 随机数种子</span>——像做菜时的特定调料，影响最终图像。不同种子生成不同图；每张图都有对应种子，想还原或画相似图必须保证该值相同。种子不变时，即便模型改变，图的大概结构与配色也会相似。输入固定值即固定种子，点骰子 icon 变 -1 为随机值。</li>
+              <li><span class="chapter__list-k">9. 变异随机种子</span>——相当于加入第二种调料，后面的变异强度指两种调料的占比，数值越大越接近第二种，0 表示完全不用。常用于确定图后生成其他相似画面，例如做 IP 时保持画面内容不变、生成略有差异的图择优。</li>
+            </ul>
+          </section>
+
+          <div class="quote-card">
+            <span class="quote-card__t">「 模型打底、提示词描述、参数微调——SD 出图就是这三件事的组合。 」</span>
+            <span class="quote-card__by">— 原文要点整理</span>
+          </div>
+
+          <div class="article-tags">
+            <span class="article-tags__label">标签</span>
+            <span class="chip chip--blue">AI</span>
+            <span class="chip">Stable Diffusion</span>
+            <span class="chip chip--orange">学习笔记</span>
+          </div>
+        </article>
+
+        <!-- 右侧目录 -->
+        <aside class="toc" aria-label="文章目录">
+          <span class="toc__label">目录 / CONTENTS</span>
+          <nav class="toc__list">
+            <span class="toc__link is-active" data-target="ch1">01&nbsp;&nbsp;软件总览</span>
+            <span class="toc__link" data-target="ch2">02&nbsp;&nbsp;模型</span>
+            <span class="toc__link" data-target="ch3">03&nbsp;&nbsp;提示词</span>
+            <span class="toc__link" data-target="ch4">04&nbsp;&nbsp;参数</span>
+          </nav>
+          <div class="toc__divider"></div>
+          <span class="toc__meta">文章信息</span>
+          <span class="toc__meta-v">整理 2026.11.20</span>
+          <span class="toc__meta-v">阅读时长 12 分钟</span>
+          <span class="toc__meta-v toc__meta-v--accent">分类 · AI</span>
+        </aside>
+      </div>
+
+    </div>
+  </main>
+</div>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/interactions.js"></script>
+</body>
+</html>
